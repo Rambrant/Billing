@@ -1,0 +1,23 @@
+{
+	"id" : "invoice-recipient-deleted-schema.json",
+	"description" : "Information about an invoice recipient that has been deleted",
+	"type" : "object",
+	"properties" : {
+		"metaData" : {
+			"$ref" : "metadata-schema.json",
+			"required" : true,
+			"description" : "Meta data of the message itself"
+		},
+		"invoiceRecipientId" : {
+			"$ref" : "guid-schema.json",
+			"required" : true,
+			"description" : "The invoice recipient that has been deleted"
+		},
+		"marketId" : {
+			"description" : "The PAN market id the invoice recipient refered to (derivated from the invoicing rule)",
+			"type" : "integer",
+			"required":true
+		}
+	},
+	"additionalProperties" : false
+}

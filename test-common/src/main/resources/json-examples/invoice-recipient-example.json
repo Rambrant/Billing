@@ -1,0 +1,24 @@
+{
+	"invoiceRecipientId" : "6abc2107-0376-7892-7756-1131735973ff",
+	"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3401",
+	"attentionRow1" : "John Doe",
+	"attentionRow2" : "",
+	"emailAddress" : "invoice@recipient.com",
+	"defaultRecipient" : false,
+	"registeredAddress" : {
+			"line1" : "Vasagatan 38",
+			"line2" : null,
+			"city" : "Stockholm",
+			"county" : null,
+			"postalCode" : "11120",
+			"countryCode" : "SE",
+			"addressType" : 3
+	},
+	"splittingRules" : [
+			{
+				"splittingRuleId" : "4b751705-8c35-163d-6e62-562a647f5949",
+				"invoiceRecipientId" : "6abc2107-0376-7892-7756-1131735973ff",
+				"splitter" : "splitthis"
+			}
+	]
+}

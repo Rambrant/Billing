@@ -1,0 +1,125 @@
+{
+	"id" : "invoice-schema.json",
+	"description" : "Information about an invoice",
+	"type" : "object",
+	"properties" : {
+		"invoiceId" : {
+			"description" : "Invoice sequence number set by Invoicing system",
+			"type" : "string",
+			"minLength" : 1,
+			"maxLength": 20,
+			"required":true
+		},
+		"sourceSystemAgreementIds" : {
+			"description" : "The programs the invoice is valid for",
+			"type" : "array",
+			"items" : {
+				"description" : "Source system agreement id",
+				"type" : "string",
+				"minLength" : 1,
+				"maxLength" : 20,
+			},
+			"minItems" : 1,
+			"additionalItems" : false,
+			"required" : true
+		},
+		"clientId" : {
+			"description" : "The PAN Org Id of the client the invoice belongs to",
+			"type" : "string",
+			"minLength": 1,
+			"maxLength": 20,
+			"required":true
+		},
+		"marketId" : {
+			"description" : "The PAN Market ID of the market acting as invoice issuer",
+			"type" : "integer",
+			"required":true
+		},
+		"invoicePeriod" : {
+			"type" : "string",
+			"required" : true,
+			"minLength": 1,
+			"description" : "The invoice period of the invoice"
+		},
+		"invoicingDate" : {
+			"$ref" : "timestamp-schema.json",
+			"required" : true,
+            "description" : "Invoicing date set by Invoicing system"
+		},
+		"dueDate" : {
+			"$ref" : "timestamp-schema.json",
+			"required" : true,
+            "description" : "Due date calculated for invoice"
+		},
+		"netAmount" : {
+			"description" : "Net amount on invoice",
+			"type" : "number",
+			"required" : true
+		},
+		"gp" : {
+			"description" : "Gross profit amount in invoice",
+			"type" : "number",
+			"required" : true
+		},
+		"vat" : {
+			"description" : "VAT amount in invoice",
+			"type" : "number",
+			"required" : true
+		},
+		"totalInvoiced" : {
+			"description" : "Total invoiced including VAT",
+			"type" : "number",
+			"required" : true
+		},
+		"currencyCode" : {
+			"description" : "Currency to be used on invoices in ISO 4217 format (string)",
+			"type" : "string",
+			"pattern" : "^[A-Z]{3}$",
+			"required" : true
+		},
+		"invoicingEvent" : {
+			"description" : "Event in the invoicing system that triggered an update of the invoice. Posted = 1, Paid = 2, Reminded = 4, WriteOff = 5, Settled = 6",
+			"type" : "integer",
+			"enum" : [1,2,4,5,6],
+			"required" : true
+		},
+		"paidDate" : {
+			"$ref" : "timestamp-or-null-schema.json",
+			"required" : true,
+            "description" : "Date of latest payment"
+		},
+		"amountOpen" : {
+			"description" : "Amount remaining to be paid",
+			"type" : "number",
+			"required" : true
+		},
+		"linkToInvoiceDocument" : {
+			"description" : "Relative url to the pdf representation of the invoice",
+			"type" : "string",
+			"minLength" : 1,
+			"maxLength": 250,
+			"required":true
+		},
+		"linkToInvoiceDocumentCopy" : {
+			"description" : "Relative url to the pdf representation of the invoice",
+			"type" : ["string", "null"],
+			"minLength" : 1,
+			"maxLength": 250,
+			"required":true
+		},
+		"revenueType" : {
+			"description" : "Type of revenue the invoice contains. Used by the invoicing system to decide what account the revenue shall be posted on and by PAN for handling publisher payments.",
+			"type" : "integer",
+			"enum" : [1,2],
+			"required" : true
+		},
+		"originalInvoiceId" : {
+			"description" : "When an invoice is credited using the invoicing system the credit invoice always cover the whole debet invoice. A reference to the original debet invoice is stored as metadata on the new debet invoice.",
+			"type" : ["string", "null"],
+			"minLength" : 1,
+			"maxLength": 20,
+			"required":true
+		}
+	},
+	"additionalProperties" : false
+}

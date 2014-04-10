@@ -1,0 +1,88 @@
+{
+	"id" : "client-schema.json",
+	"description" : "Information about a client",
+	"type" : "object",
+	"properties" : {
+		"clientId" : {
+			"description" : "The PAN Org Id of the client",
+			"type" : "string",
+			"minLength": 1,
+			"maxLength": 20,
+			"required":true
+		},
+		"clientType" : {
+			"description" : "The type of client. 0 = Advertiser, 1 = Reseller",
+			"type" : "number",			                    
+			"required":true
+		},
+		"registeredCompanyName" : {
+			"description" : "Company name of the client",
+			"type" : "string",
+			"minLength": 1,
+			"maxLength": 100,
+			"required":true
+		},
+		"companyRegistrationNumber" : {
+			"description" : "Registration number of client",
+			"type" : "string",
+			"minLength": 1,
+			"maxLength": 25,
+			"required":true
+		},
+		"vatNumber" : {
+			"description" : "VAT number used for invoicing",
+			"type" : ["string", "null"],
+			"maxLength": 20,
+			"required":true
+		},
+		"invoiceLanguage" : {
+			"description" : "Two character language code",
+			"type" : "string",
+			"minLength" : 2,
+			"maxLength" : 2,
+			"required":true
+		},
+		"businessFormCode" : {
+			"description" : "Used for Russian invoices (KPP)",
+			"type" : ["string", "null"],
+			"maxLength" : 9,
+			"required" : true
+		},
+		"bankAccounts" : {
+			"description" : "The bank accounts for the client",
+			"type" : "array",
+			"items" : {
+				"$ref" : "bank-schema.json",
+				"description" : "Bank"
+			},
+			"additionalItems" : false,
+			"required" : true
+		},
+		"registeredAddress" : {
+			"$ref" : "address-schema.json",
+			"required":true,
+			"description" : "The registered primary address of the client"
+		},
+		"invoiceMessageRules" : {
+			"description" : "The invoice message rules for the client",
+			"type" : "array",
+			"items" : {
+				"$ref" : "invoice-message-rule-schema.json",
+				"description" : "Invoice message rule"
+			},
+			"additionalItems" : false,
+			"required" : true
+		},
+		"marketIds" : {
+			"description" : "The unique markets (ids) the client has invoicing rules and agreements in",
+			"type" : "array",
+			"items" : {
+				"type" : "integer"
+			},
+			"additionalItems" : false,
+			"minItems" : 1,
+			"required" : true
+		}
+	},
+	"additionalProperties" : false
+}

@@ -1,0 +1,12 @@
+{
+    "metaData" : {
+        "creationTime" : "2012-08-31T14:44:43.290+02:00",
+        "messageId" : "5b15c006-1c3f-4a72-867e-0beff7acf728",
+        "messageType" : "DeleteSplittingRule",
+        "sourceSystem" : "CRM",
+        "version" : "1.0"
+    },
+    "splittingRuleId" : "f3f43916-25e5-e111-8b5b-005056b45da6",
+    "invoiceRecipientId" : "2b29cd0c-25e5-e111-8b5b-005056b45da6",
+    "marketId" : 51
+}

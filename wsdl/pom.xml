@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.tradedoubler.billing-integration</groupId>
+    <artifactId>billingintegration</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>wsdl</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>Mule Billing integration Wsdl</name>
+  <description>Wsdl files for webservice clients</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-frontend-jaxws</artifactId>
+      <version>${cxf.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-transports-http</artifactId>
+      <version>${cxf.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- for testing -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.9</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>2.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <profiles>
+    <profile>
+      <id>wsdl</id>
+      <activation>
+        <property>
+          <name>wsdl</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-codegen-plugin</artifactId>
+            <version>${cxf.version}</version>
+            <dependencies>
+              <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-databinding-xmlbeans</artifactId>
+                <version>${cxf.version}</version>
+              </dependency>
+              <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-xjc-ts</artifactId>
+                <version>2.2.12</version>
+              </dependency>
+            </dependencies>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>wsdl2java</goal>
+                </goals>
+                <configuration>
+                  <sourceRoot>${basedir}/src/main/java/</sourceRoot>
+                  <defaultOptions>
+                    <extraargs>
+                      <extraarg>-exsh</extraarg>
+                      <extraarg>true</extraarg>
+
+                      <extraarg>-client</extraarg>
+                      <extraarg>-verbose</extraarg>
+
+                      <!--<extraarg>-xjc-Xts</extraarg>-->
+                    </extraargs>
+                  </defaultOptions>
+                  <wsdlOptions>
+
+                    <wsdlOption>
+                      <wsdl>http://tdaxaost01/MicrosoftDynamicsAXAif60/MDSITGSalesInvR/xppservice.svc?wsdl</wsdl>
+                      <!--<serviceName>RoutingService</serviceName>-->
+                      <extraargs>
+                        <extraarg>-p</extraarg>
+                        <extraarg>http://tempuri.org/=com.tradedoubler.webservice.routing.salesrule</extraarg>
+                      </extraargs>
+                    </wsdlOption>
+                    <wsdlOption>
+                      <wsdl>http://tdaxaost01/MicrosoftDynamicsAXAif60/MDSITGSalesClA/xppservice.svc?wsdl</wsdl>
+
+                      <extraargs>
+                        <extraarg>-p</extraarg>
+                        <extraarg>http://tempuri.org/=com.tradedoubler.webservice.routing.clientagreement</extraarg>
+                      </extraargs>
+
+                    </wsdlOption>
+                    <wsdlOption>
+                      <wsdl>http://tdaxaost01/MicrosoftDynamicsAXAif60/MDSITGSalesCust/xppservice.svc?wsdl</wsdl>
+
+                      <extraargs>
+                        <extraarg>-noAddressBinding</extraarg>
+                        <extraarg>-p</extraarg>
+                        <extraarg>http://tempuri.org/=com.tradedoubler.webservice.routing.salescustomer</extraarg>
+
+                      </extraargs>
+
+                    </wsdlOption>
+                    <wsdlOption>
+                      <wsdl>http://tdaxaost01/MicrosoftDynamicsAXAif60/MDSITGCustbank/xppservice.svc?wsdl</wsdl>
+
+                      <extraargs>
+                        <extraarg>-p</extraarg>
+                        <extraarg>http://tempuri.org/=com.tradedoubler.webservice.routing.customerbank</extraarg>
+                      </extraargs>
+
+                    </wsdlOption>
+                    <wsdlOption>
+                      <wsdl>http://tdaxaost01/MicrosoftDynamicsAXAif60/MDSITGSInvRec/xppservice.svc?wsdl</wsdl>
+                      <extraargs>
+                        <extraarg>-p</extraarg>
+                        <extraarg>http://tempuri.org/=com.tradedoubler.webservice.routing.invoicerecipient</extraarg>
+                      </extraargs>
+
+                    </wsdlOption>
+                    <wsdlOption>
+                      <wsdl>http://tdaxaost01/MicrosoftDynamicsAXAif60/MDSITGSInvMes/xppservice.svc?wsdl</wsdl>
+                      <extraargs>
+                        <extraarg>-p</extraarg>
+                        <extraarg>http://tempuri.org/=com.tradedoubler.webservice.routing.invoicemessage</extraarg>
+                      </extraargs>
+                    </wsdlOption>
+                    <wsdlOption>
+                      <wsdl>http://tdaxaost01/MicrosoftDynamicsAXAif60/MDSITGSalesOrderBasisLineService/xppservice.svc?wsdl</wsdl>
+                      <extraargs>
+                        <extraarg>-p</extraarg>
+                        <extraarg>http://tempuri.org/=com.tradedoubler.webservice.routing.salesorderbasisline</extraarg>
+                      </extraargs>
+                    </wsdlOption>
+                    <wsdlOption>
+                      <wsdl>http://tdaxaost01/MicrosoftDynamicsAXAif60/MDSITGscheduleOrderBasisLineProcessing/xppservice.svc?wsdl</wsdl>
+                      <extraargs>
+                        <extraarg>-p</extraarg>
+                        <extraarg>http://tempuri.org/=com.tradedoubler.webservice.routing.schedulesalesorderbasisline</extraarg>
+                      </extraargs>
+                    </wsdlOption>
+
+                  </wsdlOptions>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

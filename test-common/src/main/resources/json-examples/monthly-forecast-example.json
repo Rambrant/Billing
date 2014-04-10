@@ -1,0 +1,16 @@
+{
+	"soruceSystemAgreementId" : "1-123456789",
+	"year" : 2012,
+	"month" : 9,
+	"currencyCode" : "SEK",
+	"accountManagement" : 100.00,
+	"consulting" : 100.00,
+	"filehostingFee" : 100.00,
+	"minimumTransactionFee" : 100.00,
+	"networkFee" : 100.00,
+	"other" : 100.00,
+	"suf" : 100.00,
+	"tradedoublerCommission" : 100.00,
+	"transactionalRevenue" : 100.00,
+	"fixedAndOtherRevenue" : 100.00
+}

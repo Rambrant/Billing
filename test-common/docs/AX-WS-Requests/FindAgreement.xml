@@ -1,0 +1,21 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dat="http://schemas.microsoft.com/dynamics/2010/01/datacontracts" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:tem="http://tempuri.org" xmlns:quer="http://schemas.microsoft.com/dynamics/2006/02/documents/QueryCriteria">
+   <soapenv:Header>
+      <dat:CallContext>
+         <dat:Company>SE02</dat:Company>
+         <dat:Language>en-US</dat:Language>
+         <dat:LogonAsUser>TRADEDOUBLER\ITG-AX_Test</dat:LogonAsUser>
+      </dat:CallContext>
+   </soapenv:Header>
+   <soapenv:Body>
+      <tem:MDS_ITGSalesClAServiceFindRequest>
+         <quer:QueryCriteria>
+            <quer:CriteriaElement>
+               <quer:DataSourceName>MDS_SalesClientAgreement</quer:DataSourceName>
+               <quer:FieldName>SourceSystemAgreementId</quer:FieldName>
+               <quer:Operator>EQUAL</quer:Operator>
+               <quer:Value1>TTHHQXTScafebabe0003</quer:Value1>
+            </quer:CriteriaElement>
+         </quer:QueryCriteria>
+      </tem:MDS_ITGSalesClAServiceFindRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

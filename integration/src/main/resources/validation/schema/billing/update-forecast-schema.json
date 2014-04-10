@@ -1,0 +1,18 @@
+{
+	"id" : "update-forecast-schema.json",
+	"description" : "A message that will update a forecast in the CRM",
+	"type" : "object",
+	"properties" : {
+		"metaData" : {
+			"$ref" : "metadata-schema.json",
+			"required" : true,
+			"description" : "Meta data of the message itself"
+		},
+		"monthlyForecast" : {
+			"$ref" : "monthly-forecast-schema.json",
+			"required" : true,
+			"description" : "The monthly forecast to update"
+		}
+	},
+	"additionalProperties" : false
+}

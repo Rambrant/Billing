@@ -1,0 +1,67 @@
+{
+	"id" : "agreement-schema.json",
+	"description" : "Information about an agreement",
+	"type" : "object",
+	"properties" : {
+		"sourceSystemAgreementId" : {
+			"description" : "Agreement identity set by the system delivering order-lines. Used in order-lines for referencing agreements.",
+			"type" : "string",
+			"minLength" : 1,
+			"maxLength" : 20,
+			"required":true
+		},
+		"clientId" : {
+			"description" : "The PAN Org Id of the client the agreement belongs to",
+			"type" : "string",
+			"minLength": 1,
+			"maxLength": 20,
+			"required" : true
+		},
+		"invoicingRuleId" : {
+			"$ref" : "guid-schema.json",
+			"required":true,
+			"description" : "Id for the invocing rule the agreement refers to"
+		},
+		"description" : {
+			"description" : "Description of agreement, i.e agreement name",
+			"type" : "string",
+			"minLength": 1,
+			"maxLength": 60,
+			"required":true
+		},
+		"productType" : {
+			"description" : "Type of product sold in the agreement. 1 = Public affiliate program, 2 = TD internal program, 3 = Campaign program, 4 = Media toolbox program, 5 = Call program, 6 = Adnetwork program, 7 = Paid search program",
+			"type" : "integer",
+			"enum" : [1, 2, 3, 4, 5, 6, 7],
+			"required" : true
+		},
+		"marketId" : {
+			"description" : "The PAN Market ID for the market that shall receive revenue for the agreement",
+			"type" : "integer",
+			"required":true
+		},
+		"currencyCode" : {
+			"description" : "Currency used for the agreement in ISO 4217 format (string)",
+			"type" : "string",
+			"pattern" : "^[A-Z]{3}$",
+			"required" : true
+		},
+		"validFrom" : {
+			"$ref" : "timestamp-or-null-schema.json",
+			"required" : true,
+            "description" : "Used for setting invoicing period"
+		},
+		"validTo" : {
+			"$ref" : "timestamp-or-null-schema.json",
+            "required" : true,
+			"description" : "Used for setting invoicing period"	
+		},
+		"documentLink" : {
+			"description" : "Link to agreement document file (printed and attached as appendix to Russian invoices)",
+			"type" : ["string", "null"],
+			"maxLength": 200,
+			"required" : true			
+		}
+	},
+	"additionalProperties" : false
+}

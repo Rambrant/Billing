@@ -1,0 +1,127 @@
+{
+	"metaData" : {
+			"messageType" : "CreateInvoicingRule",
+			"messageId" : "28a6263c-15d0-815e-25f4-5442b66d1059",
+			"creationTime" : "2012-06-25T13:21:00.000+02:00",
+			"version" : "1.0",
+			"sourceSystem" : "CRM"
+	},
+	"invoicingRule" : {
+			"clientId" : "18811826",
+			"marketId" : 51,
+			"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3401",
+			"invoicingRuleName" : "Invoice Message Rule Example Name",
+			"description" : "Example description",
+			"issuerReference" : "Max Revenue",
+			"clientReference" : "John Doe",
+			"currencyCode" : "SEK",
+			"distributionMode" : 1,
+			"termsOfPayment" : 30,
+			"postingProfile" : 1,
+			"displayTDcommision" : true,
+			"revenueType" : 1,
+			"paymentMethod" : 2,
+			"deviatingExchangeRate" : false,
+			"invoiceRecipients" : [
+					{
+						"invoiceRecipientId" : "6abc2107-0376-7892-7756-1131735973ff",
+						"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3401",
+						"attentionRow1" : "John Doe",
+						"attentionRow2" : "",
+						"emailAddress" : "invoice@recipient.com",
+						"defaultRecipient" : true,
+						"registeredAddress" : {
+								"line1" : "Vasagatan 38",
+								"line2" : null,
+								"city" : "Stockholm",
+								"county" : null,
+								"postalCode" : "11120",
+								"countryCode" : "SE",
+								"addressType" : 3
+						},
+						"splittingRules" : [
+								{
+									"splittingRuleId" : "4b751705-8c35-163d-6e62-562a647f5949",
+									"invoiceRecipientId" : "6abc2107-0376-7892-7756-1131735973ff",
+									"splitter" : "customEventExample"
+								}
+						]
+					}
+			],
+			"purchaseOrders" : [
+					{
+						"purchaseOrderId" : "2a167b36-c41d-034e-6628-88288f611883",
+						"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3401",
+						"poNumber" : "URCWZNLSCB",
+						"validFrom" : "2012-06-25T00:00:00.000+01:00",
+						"validTo" : "2012-08-30T00:00:00.000+01:00"
+					}
+			],
+			"invoiceMessageRules" : [
+					{
+						"invoiceMessageRuleId" : "885b8421-11f1-4684-1769-3478152e5597",
+						"clientId" : null,
+						"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3401",
+						"marketId" : null,
+						"messageText" : "This is a text to be printed on all invoices for this invoicing rule",
+						"validFrom" : "2012-06-25T00:00:00.000+01:00",
+						"validTo" : "2012-08-30T00:00:00.000+01:00"
+					}
+			]
+	},
+	"agreement" : {
+			"sourceSystemAgreementId" : "1-1234567896",
+			"clientId" : "18811826",
+			"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3401",
+			"description" : "Agreement Name Example",
+			"productType" : 1,
+			"marketId" : 51,
+			"currencyCode" : "SEK",
+			"validFrom" : "2012-06-25T15:30:01.999+02:00",
+			"validTo" : null,
+			"documentLink" : "\\\\someserver\\somefolder\\somefile.pdf"
+	},
+	"client" : {
+			"clientId" : "18811826",
+			"registeredCompanyName" : "Kentor IT AB",
+			"companyRegistrationNumber" : "556284-2319",
+			"vatNumber" : "SE556284231901",
+			"invoiceLanguage" : "SV",
+			"directDebitAccountId" : "28831570-0463-7958-3431-589231744266",
+			"businessFormCode" : "",
+			"bankAccounts" : [
+					{
+						"bankId" : "28831570-0463-7958-3431-589231744266",
+						"clientId" : "18811826",
+						"paymentMethod" : 2,
+						"marketId" : 51,
+						"bankCode" : "SWEDSESS",
+						"bankAccount" : "123456",
+						"accountOwner" : "Account Owner Example"
+					}
+			],
+			"registeredAddress" : {
+					"line1" : "Vasagatan 38",
+					"line2" : null,
+					"city" : "Stockholm",
+					"county" : null,
+					"postalCode" : "11120",
+					"countryCode" : "SE",
+					"addressType" : 3
+			},
+			"invoiceMessageRules" : [
+						{
+							"invoiceMessageRuleId" : "885d8421-11f1-4684-1769-3478152e5597",
+							"clientId" : "18811826",
+							"invoicingRuleId" : null,
+							"marketId" : null,
+							"messageText" : "This is a text to be printed on all invoices for this client",
+							"validFrom" : "2012-06-25T00:00:00.000+01:00",
+							"validTo" : "2012-08-30T00:00:00.000+01:00"
+						}
+			],
+			"marketIds" : [
+							51
+			]
+	}
+}

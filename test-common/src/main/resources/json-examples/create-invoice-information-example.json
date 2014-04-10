@@ -1,0 +1,33 @@
+{
+	"metaData" : {
+			"messageType" : "CreateInvoiceInformation",
+			"messageId" : "22263309-8562-4e46-43f3-1476b7543897",
+			"creationTime" : "2012-09-27T13:00:00.0Z",
+			"version" : "1.0",
+			"sourceSystem" : "AX"
+	},
+	"invoice" : {
+		"invoiceId" : "12345678",
+		"sourceSystemAgreementIds" : [
+				"1-1234567896"
+		],
+		"clientId" : "18811826",
+		"marketId" : 51,
+		"invoicePeriodStart" : "2012-09-01T00:00:00.0Z",
+		"invoicePeriodEnd" : "2012-09-30T00:00:00.0Z",
+		"invoicingDate" : "2012-08-25T00:00:00.0Z",
+		"dueDate" : "2012-09-30T00:00:00.0Z",
+		"netAmount" : 10000.00,
+		"gp" : 500.00,
+		"vat" : 2500.00,
+		"totalInvoiced" : 12500.00,
+		"currencyCode" : "SEK",
+		"invoicingEvent" : 1,
+		"paidDate" : null,
+		"amountOpen" : 12500.00,
+		"linkToInvoiceDocument" : "/pdf/2012/09/filename.pdf",
+		"linkToInvoiceDocumentCopy" : null,
+		"revenueType" : 1,
+		"originalInvoiceId" : null
+	}
+}

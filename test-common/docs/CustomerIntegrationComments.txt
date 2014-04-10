@@ -1,0 +1,9 @@
+Mapping:
+
+Elements present in CRM but missing in AxWS:
+directDebitAccountId
+businessFormCode
+
+
+Elements hard to pass web service schema
+FederalComments

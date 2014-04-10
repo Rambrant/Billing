@@ -1,0 +1,40 @@
+{
+			"clientId" : "18811826",
+			"registeredCompanyName" : "Kentor IT AB",
+			"companyRegistrationNumber" : "556284-2319",
+			"vatNumber" : "SE556284231901",
+			"invoiceLanguage" : "SV",
+			"businessFormCode" : "",
+			"bankAccounts" : [
+					{
+						"clientId" : "18811826",
+						"marketId" : 51,
+						"bankCode" : "SWEDSESS",
+						"bankAccount" : "1234-1234567890",
+						"accountOwner" : "Account Owner Example"
+					}
+			],
+			"registeredAddress" : {
+					"line1" : "Vasagatan 38",
+					"line2" : null,
+					"city" : "Stockholm",
+					"county" : null,
+					"postalCode" : "11120",
+					"countryCode" : "SE",
+					"addressType" : 3
+			},
+			"invoiceMessageRules" : [
+						{
+							"invoiceMessageRuleId" : "885d8421-11f1-4684-1769-3478152e5597",
+							"clientId" : "18811826",
+							"invoicingRuleId" : null,
+							"marketId" : null,
+							"messageText" : "This is a text to be printed on all invoices for this client",
+							"validFrom" : "2012-06-25T00:00:00.000+01:00",
+							"validTo" : "2012-08-30T00:00:00.000+01:00"
+						}
+			],
+	"marketIds" : [
+			51
+	]
+}

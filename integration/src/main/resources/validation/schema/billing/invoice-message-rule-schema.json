@@ -1,0 +1,46 @@
+{
+	"id" : "invoice-message-rule-schema.json",
+	"description" : "A message to be printed on the invoices",
+	"type" : "object",
+	"properties" : {
+	    "invoiceMessageRuleId" : {
+			"$ref" : "guid-schema.json",
+			"required" : true,
+			"description" : "The primary id for the invoice message rule"
+		},
+		"clientId" : {
+			"description" : "The PAN Org Id of the client the message refers to",
+			"type" : ["string", "null"],
+			"minLength" : 1,
+			"maxLength" : 20,
+			"required" : true
+		},
+		"invoicingRuleId" : {
+			"$ref" : "guid-or-null-schema.json",
+			"required" : true,
+			"description" : "The CRM guid of the invoicing rule the message refers to"
+		},
+		"marketId" : {
+			"description" : "The PAN Org Id of the market the message refers to",
+			"type" : ["integer", "null"],
+			"required" : true
+		},
+		"messageText" : {
+			"description" : "Message text to be shown on the invoice",
+			"type" : "string",
+			"maxLength" : 200,
+			"required" : true
+		},
+		"validFrom" : {
+			"$ref" : "timestamp-schema.json",
+			"required" : true,
+			"description" : "Start date for when the message shall be shown on invoices"
+		},
+		"validTo" : {
+			"$ref" : "timestamp-schema.json",
+			"required" : true,
+			"description" : "End date for when the message shall be shown on invoices"
+		}
+	},
+	"additionalProperties" : false
+}

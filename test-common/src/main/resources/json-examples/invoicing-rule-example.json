@@ -1,0 +1,64 @@
+{
+	"clientId" : "18811826",
+	"marketId" : 51,
+	"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3401",
+	"invoicingRuleName" : "Invoice Message Rule Example Name",
+	"description" : "Example description",
+	"issuerReference" : "Max Revenue",
+	"clientReference" : "John Doe",
+	"currencyCode" : "SEK",
+	"distributionMode" : 1,
+	"termsOfPayment" : 30,
+	"postingProfile" : 1,
+	"displayTDcommission" : true,
+	"revenueType" : 1,
+	"paymentMethod" : 1,
+	"deviatingExchangeRate" : false,
+	"invoiceRecipients" : [
+			{
+				"invoiceRecipientId" : "6abc2107-0376-7892-7756-1131735973ff",
+				"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3401",
+				"attentionRow1" : "John Doe",
+				"attentionRow2" : "",
+				"emailAddress" : "invoice@recipient.com",
+				"defaultRecipient" : false,
+				"registeredAddress" : {
+						"line1" : "Vasagatan 38",
+						"line2" : null,
+						"city" : "Stockholm",
+						"county" : null,
+						"postalCode" : "11120",
+						"countryCode" : "SE",
+						"addressType" : 3
+				},
+				"splittingRules" : [
+						{
+							"splittingRuleId" : "4b751705-8c35-163d-6e62-562a647f5949",
+							"invoiceRecipientId" : "6abc2107-0376-7892-7756-1131735973ff",
+							"splitter" : "splitthis"
+						}
+				]
+			}
+	],
+	"purchaseOrders" : [
+			{
+				"purchaseOrderId" : "2a167b36-c41d-034e-6628-88288f611883",
+				"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3401",
+				"poNumber" : "URCWZNLSCB",
+				"validFrom" : "2012-06-25T00:00:00.000+01:00",
+				"validTo" : "2012-08-30T00:00:00.000+01:00"
+			}
+	],
+	"invoiceMessageRules" : [
+			{
+				"invoiceMessageRuleId" : "885b8421-11f1-4684-1769-3478152e5597",
+				"clientId" : null,
+				"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3401",
+				"marketId" : null,
+				"messageText" : "This is a text to be printed on all invoices for this invoicing rule",
+				"validFrom" : "2012-06-25T00:00:00.000+01:00",
+				"validTo" : "2012-08-30T00:00:00.000+01:00"
+			}
+	],
+	"sourceSystemAgreementIds" : ["1-888111"],
+}

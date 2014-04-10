@@ -1,0 +1,38 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dat="http://schemas.microsoft.com/dynamics/2010/01/datacontracts" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:tem="http://tempuri.org" xmlns:ent="http://schemas.microsoft.com/dynamics/2006/02/documents/EntityKeyList" xmlns:ent1="http://schemas.microsoft.com/dynamics/2006/02/documents/EntityKey" xmlns:mds="http://schemas.microsoft.com/dynamics/2008/01/documents/MDS_ITGSalesClA">
+   <soapenv:Header>
+      <dat:CallContext>
+         <dat:Company>SE02</dat:Company>
+         <dat:Language>en-US</dat:Language>
+         <dat:LogonAsUser>TRADEDOUBLER\ITG-AX_Test</dat:LogonAsUser>
+      </dat:CallContext>
+   </soapenv:Header>
+   <soapenv:Body>
+      <tem:MDS_ITGSalesClAServiceUpdateRequest>
+         <ent:EntityKeyList>
+            <ent1:EntityKey>
+               <ent1:KeyData>
+                  <ent1:KeyField>
+                     <ent1:Field>SourceSystemAgreementId</ent1:Field>
+                     <ent1:Value>TTHHQXTScafebabe0003</ent1:Value>
+                  </ent1:KeyField>
+               </ent1:KeyData>
+            </ent1:EntityKey>
+         </ent:EntityKeyList>
+         <mds:MDS_ITGSalesClA>
+            <mds:MDS_SalesClientAgreement class="entity" action="update">
+               <mds:_DocumentHash>bb778122851905ca0af673bf8bf8be55</mds:_DocumentHash>
+               <mds:BelongsToDataAreaId>SE02</mds:BelongsToDataAreaId>
+               <mds:CurrencyCode>SEK</mds:CurrencyCode>
+               <mds:CustId>TELIA</mds:CustId>
+               <mds:Description>New description</mds:Description>
+               <mds:DocumentLink>http://pelle.nu/new_pelle.txt</mds:DocumentLink>
+               <mds:InvoiceRuleId>{3F2504E0-4F89-11D3-9A0C-0305E82C3405}</mds:InvoiceRuleId>
+               <mds:ProductTypeId>1</mds:ProductTypeId>
+               <mds:SourceSystemAgreementId>TTHHQXTScafebabe0003</mds:SourceSystemAgreementId>
+               <mds:ValidFrom>2012-06-01</mds:ValidFrom>
+               <mds:ValidTo></mds:ValidTo>
+            </mds:MDS_SalesClientAgreement>
+         </mds:MDS_ITGSalesClA>
+      </tem:MDS_ITGSalesClAServiceUpdateRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

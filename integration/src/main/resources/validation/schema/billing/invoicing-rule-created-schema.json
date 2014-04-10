@@ -1,0 +1,28 @@
+{
+	"id" : "invoicing-rule-created-schema.json",
+	"description" : "Information about an invoicing rule that has been created in the CRM",
+	"type" : "object",
+	"properties" : {
+		"metaData" : {
+			"$ref" : "metadata-schema.json",
+			"required" : true,
+			"description" : "Meta data of the message itself"
+		},
+		"invoicingRule" : {
+			"$ref" : "invoicing-rule-schema.json",
+			"required" : true,
+			"description" : "Information about the invoicing rule that has been created"
+		},
+		"agreement" : {
+			"$ref" : "agreement-schema.json",
+			"required" : true,
+			"description" : "Information about the agreement that has been created/attached to the invoicing rule"
+		},
+		"client" : {
+			"$ref" : "client-schema.json",
+			"required" : true,
+			"description" : "Information about the client the invoicing rule refers to"
+		}
+	},
+	"additionalProperties" : false
+}

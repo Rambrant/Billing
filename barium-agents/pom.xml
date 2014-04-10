@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.tradedoubler.billing-integration</groupId>
+    <artifactId>billingintegration</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>barium-agents</artifactId>
+  <name>Mule Billing integration Barium agents</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.tradedoubler.billing-integration</groupId>
+      <artifactId>integration</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+
+    <!-- For database -->
+    <dependency>
+      <groupId>org.apache.derby</groupId>
+      <artifactId>derby</artifactId>
+      <version>10.9.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.derby</groupId>
+      <artifactId>derbynet</artifactId>
+      <version>10.9.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.derby</groupId>
+      <artifactId>derbyclient</artifactId>
+      <version>10.9.1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.12</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mule.transports</groupId>
+      <artifactId>mule-transport-vm</artifactId>
+      <version>3.2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>3.0.5.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mule.tests</groupId>
+      <artifactId>mule-tests-functional</artifactId>
+      <version>${mule.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mule.transports</groupId>
+      <artifactId>mule-transport-quartz</artifactId>
+      <version>${mule.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- for test -->
+    <dependency>
+      <groupId>com.tradedoubler.billing-integration</groupId>
+      <artifactId>test-common</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <configuration>
+            <!-- Will be enabled in separate profile -->
+            <skipTests>true</skipTests>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>barium</id>
+      <activation>
+        <property>
+          <name>barium</name>
+        </property>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <configuration>
+                <skipTests>false</skipTests>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+
+    </profile>
+  </profiles>
+
+</project>

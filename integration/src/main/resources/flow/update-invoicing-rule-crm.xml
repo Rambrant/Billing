@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:http="http://www.mulesoft.org/schema/mule/http"
+      xmlns:spring="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:quartz="http://www.mulesoft.org/schema/mule/quartz"
+      xmlns:vm="http://www.mulesoft.org/schema/mule/vm"
+      version="CE-3.2.1" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/3.2/mule-http.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.2/mule.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/quartz/3.2/mule-quartz.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/3.2/mule-vm.xsd
+">
+
+    <flow name="UpdateInvoicingRuleCrm" processingStrategy="nonConcurrent">
+
+        <!-- PLATFORM / PER FLOW: Start triggers for the flow. Substitute parameters for the specific flow. -->
+        <composite-source>
+
+            <quartz:inbound-endpoint jobName="UpdateInvoicingRuleCrmTimer"
+                                     repeatInterval="${INVOICING_RULE_UPDATED_CRM_REPEAT_INTERVAL}"
+                                     startDelay="${INVOICING_RULE_UPDATED_CRM_START_DELAY}"
+                                     connector-ref="quartzConnector1">
+            <quartz:event-generator-job>
+                    <quartz:payload>QUARTZ</quartz:payload>
+            </quartz:event-generator-job>
+        </quartz:inbound-endpoint>
+
+            <!-- Mandatory: path must equal flow name -->
+            <vm:inbound-endpoint exchange-pattern="one-way" path="UpdateInvoicingRuleCrm"/>
+
+        </composite-source>
+
+        <!-- PLATFORM: Determines when a flow should be run -->
+        <component>
+            <spring-object bean="flowController"/>
+        </component>
+
+        <!-- PLATFORM: If disturbance the flow ends here -->
+        <filter ref="flowControllerOutputFilter"/>
+
+
+        <!-- fetch from azure -->
+        <component>
+            <spring-object bean="fetchEntity"/>
+        </component>
+
+        <!-- PLATFORM: Determine if input was available or if the flow should end -->
+        <filter ref="integrationInputPointFilter"/>
+
+        <custom-processor class="com.tradedoubler.billing.validate.JsonValidationProcessor">
+            <spring:property name="jsonSchemaPath"
+                             value="validation/schema/billing/invoicing-rule-updated-schema.json"/>
+        </custom-processor>
+
+        <!-- PLATFORM: Determine if input was available or if the flow should end -->
+        <filter ref="integrationInputPointFilter"/>
+
+        <transformer ref="invoicingRuleUpdatedFromJsonTransformer"/>
+
+        <!-- PLATFORM: Determine if input was available or if the flow should end -->
+        <filter ref="integrationInputPointFilter"/>
+
+        <!-- PLATFORM: Analyses the integration message -->
+        <component>
+            <spring-object bean="messageController"/>
+        </component>
+
+        <component>
+            <spring-object bean="muleInvoicingRuleUpdated"/>
+        </component>
+
+        <!-- Clean message -->
+        <component>
+            <spring-object bean="muleDeleteOriginalAzureMessage"/>
+        </component>
+
+        <!-- PLATFORM: Ends a flow correctly -->
+        <component>
+            <spring-object bean="flowEnd"/>
+        </component>
+
+        <!-- PLATFORM: Handles all (unexpected) exceptions -->
+        <default-exception-strategy>
+            <component>
+                <spring-object bean="flowExceptionHandler"/>
+            </component>
+        </default-exception-strategy>
+
+    </flow>
+</mule>
+
+
+
+

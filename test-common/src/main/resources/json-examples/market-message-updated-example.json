@@ -1,0 +1,18 @@
+{
+	"metaData" : {
+			"creationTime" : "2012-09-06T12:52:20.000+02:00",
+			"messageId" : "54d7887f-481b-62c6-5b41-3f33f46ec478",
+			"messageType" : "UpdateMarketMessage",
+			"sourceSystem" : "CRM",
+			"version" : "1.0"
+	},
+	"invoiceMessageRule" : {
+			"clientId" : null,
+			"invoiceMessageRuleId" : "885d8421-11f1-4684-1769-3478152e5597",
+			"invoicingRuleId" : null,
+			"marketId" : 51,
+			"messageText" : "This is a text to be printed on all invoices for this market",
+			"validFrom" : "2012-06-25T00:00:00.000+01:00",
+			"validTo" : "2012-12-30T00:00:00.000+01:00"
+	}
+}

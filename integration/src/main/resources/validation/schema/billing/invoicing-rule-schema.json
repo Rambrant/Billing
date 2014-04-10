@@ -1,0 +1,138 @@
+{
+	"id" : "invoicing-rule-schema.json",
+	"description" : "Information about an invoicing rule",
+	"type" : "object",
+	"properties" : {
+		"clientId" : {
+			"description" : "The PAN Org Id of the client the invoicing rule belongs to",
+			"type" : "string",
+			"minLength" : 1,
+			"maxLength": 20,
+			"required":true
+		},
+		"marketId" : {
+			"description" : "The PAN Market ID of the market acting as invoice issuer",
+			"type" : "integer",
+			"required":true
+		},
+		"invoicingRuleId" : {
+			"$ref" : "guid-schema.json",
+			"required":true,
+			"description" : "CRM primary key of the invoicing rule"
+		},
+		"invoicingRuleName" : {
+			"description" : "Name of invoicing rule",
+			"type" : "string",
+			"minLength" : 1,
+			"maxLength": 60,
+			"required":true
+		},
+		"description" : {
+			"description" : "A description of the invoicing rule",
+			"type" : ["string", "null"],
+			"maxLength": 200,
+			"required":true
+		},
+		"issuerReference" : {
+			"description" : "Name of reference person of the invoice issuer organisation",
+			"type" : "string",
+			"minLength" : 1,
+			"maxLength": 60,
+			"required":true
+		},
+		"clientReference" : {
+			"description" : "Name of reference person of the client organisation",
+			"type" : "string",
+			"minLength" : 1,
+			"maxLength": 60,
+			"required":true
+		},
+		"currencyCode" : {
+			"description" : "Currency to be used on invoices in ISO 4217 format (string)",
+			"type" : "string",
+			"pattern" : "^[A-Z]{3}$",
+			"required" : true
+		},
+		"distributionMode" : {
+			"description" : "Invoice distribution mode. 1 = Send by post, 2 = Send by email, 3 = Send by post and email",
+			"type" : "integer",
+			"enum" : [1, 2, 3],
+			"required" : true
+		},
+		"termsOfPayment" : {
+			"description" : "Terms of payment to be used for invoices. The enum values corresponds to the number of days",
+			"type" : "integer",
+			"enum" : [1, 10, 14, 15, 20, 21, 30, 45, 60, 90, 180],
+			"required" : true
+		},
+		"postingProfile" : {
+			"description" : "Profile for how to handle interest and reminders. Valid values are currently unknown",
+			"type" : "integer",
+			"required" : true
+		},
+		"displayTDcommission" : {
+			"description" : "Rule for if TD commission shall be shown separately on invoice",
+			"type" : "boolean",
+			"required" : true
+		},
+		"revenueType" : {
+			"description" : "Type of revenue the invoice contains. Used to decide what account the revenue shall be posted on. 1 = Tradedoubler, 2 = PVN",
+			"type" : "integer",
+			"enum" : [1, 2],
+			"required" : true
+		},
+		"paymentMethod" : {
+			"description" : "Payment method to be used. Overrules default payment method set for client. 1 = Normal, 2 = Direct debit",
+			"type" : "integer",
+			"enum" : [1, 2],
+			"required" : true
+		},
+		"deviatingExchangeRate" : {
+			"description" : "Decides if the creation of invoice shall be triggered manually for the order. Enables setting of order specific currency exchange rate to be used for the invoice.",
+			"type" : "boolean",
+			"required" : true
+		},
+		"invoiceRecipients" : {
+			"description" : "The invoice recipients for the invoicing rule",
+			"type" : "array",
+			"items" : {
+				"$ref" : "invoice-recipient-schema.json",
+				"description" : "Invoice Recipient"
+			},
+			"additionalItems" : false,
+			"minItems" : 1,
+			"required" : true
+		},
+		"purchaseOrders" : {
+			"description" : "The purchase orders for the invoicing rule",
+			"type" : "array",
+			"items" : {
+				"$ref" : "purchase-order-schema.json",
+				"description" : "Purchase Order"
+			},
+			"additionalItems" : false,
+			"required" : true
+		},
+		"invoiceMessageRules" : {
+			"description" : "The invoice messages for the invoicing rule",
+			"type" : "array",
+			"items" : {
+				"$ref" : "invoice-message-rule-schema.json",
+				"description" : "Invoice message rule"
+			},
+			"additionalItems" : false,
+			"required" : true
+		},
+		"sourceSystemAgreementIds" : {
+			"description" : "The agreement ids that are connected with the invoicing rule",
+			"type" : "array",
+			"items" : {
+				"type" : "string",
+				"description" : "Source system agreement id"
+			},
+			"additionalItems" : false,
+			"required" : true
+		}
+	},
+	"additionalProperties" : false
+}

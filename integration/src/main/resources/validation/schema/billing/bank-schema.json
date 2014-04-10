@@ -1,0 +1,41 @@
+{
+	"id" : "bank-schema.json",
+	"description" : "Bank Information for a client",
+	"type" : "object",
+	"properties" : {
+		"clientId" : {
+			"description" : "A reference to the client the bank information refers to",
+			"type" : "string",
+			"minLength" : 1,
+			"maxLength" : 20,
+			"required" : true
+		},
+		"marketId" : {
+			"description" : "Market where selected payment method is valid",
+			"type" : "integer",
+			"required" : true
+		},
+		"bankCode" : {
+			"description" : "Customer bank code",
+			"type" : "string",
+			"minLength" : 1,
+			"maxLength" : 10,	
+			"required" : true
+		},
+		"bankAccount" : {
+			"description" : "Customer bank account number",
+			"type" : "string",
+			"minLength" : 1,
+			"maxLength" : 34,
+			"required" : true
+		},
+		"accountOwner" : {
+			"description" : "Name of bank account owner",
+			"type" : "string",
+			"minLength" : 1,
+			"maxLength" : 60,
+			"required" : true
+		}
+	},
+	"additionalProperties" : false
+}

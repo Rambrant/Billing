@@ -1,0 +1,18 @@
+{
+	"id" : "client-updated.json",
+	"description" : "Information about a client that has been updated in the CRM",
+	"type" : "object",
+	"properties" : {
+			"metaData" : {
+				"$ref" : "metadata-schema.json",
+				"required" : true,
+				"description" : "Meta data of the message itself"
+			},
+			"client" : {
+				"$ref" : "client-schema.json",
+				"required" : true,
+				"description" : "Information about the client that has been updated"
+			}
+	},
+	"additionalProperties" : false
+}

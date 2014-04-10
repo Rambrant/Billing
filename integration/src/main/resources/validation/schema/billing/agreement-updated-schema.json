@@ -1,0 +1,18 @@
+{
+	"id" : "agreement-updated-schema.json",
+	"description" : "Information about an agreement that has been updated in the CRM",
+	"type" : "object",
+	"properties" : {
+		"metaData" : {
+			"$ref" : "metadata-schema.json",
+			"required" : true,
+			"description" : "Meta data of the message itself"
+		},
+		"agreement" : {
+			"$ref" : "agreement-schema.json",
+			"required" : true,
+			"description" : "Information about the agreement that has been updated"
+		}
+	},
+    "additionalProperties" : false
+}

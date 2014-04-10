@@ -1,0 +1,18 @@
+{
+	"id" : "invoicing-rule-updated.json",
+	"description" : "Information about an invoicing rule that has been updated in the CRM",
+	"type" : "object",
+	"properties" : {
+			"metaData" : {
+				"$ref" : "metadata-schema.json",
+				"required" : true,
+				"description" : "Meta data of the message itself"
+			},
+			"invoicingRule" : {
+				"$ref" : "invoicing-rule-schema.json",
+				"required" : true,
+				"description" : "Information about the invoicing rule that has been updated"
+			}
+	},
+	"additionalProperties" : false
+}

@@ -1,0 +1,13 @@
+{
+	"metaData" : {
+			"messageType" : "UpdateInvoiceInformation",
+			"messageId" : "10146531-25b8-c692-ff39-743555870825",
+			"creationTime" : "2012-09-27T00:00:00.0Z",
+			"version" : "1.0",
+			"sourceSystem" : "AX"
+	},
+	"invoiceId" : "123456",
+	"invoicingEvent" : 2,
+	"paidDate" : "2012-09-27T00:00:00.0Z",
+	"amountOpen" : 1500.00
+}

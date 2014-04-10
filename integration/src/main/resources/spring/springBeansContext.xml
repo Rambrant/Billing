@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- Contains all explicitly defined beans (but not services) -->
+
+
+    <!-- Platform -->
+    <bean id="flowControllerSettings" class="com.tradedoubler.billing.platform.flowcontroller.FlowControllerSettings">
+        <property name="FLOW_CONTROLLER_DISTURBANCE_1" value="${FLOW_CONTROLLER_DISTURBANCE_1}"/>
+        <property name="FLOW_CONTROLLER_DISTURBANCE_2" value="${FLOW_CONTROLLER_DISTURBANCE_2}"/>
+        <property name="FLOW_CONTROLLER_DISTURBANCE_3" value="${FLOW_CONTROLLER_DISTURBANCE_3}"/>
+        <property name="FLOW_CONTROLLER_BUG_DISTURBANCE" value="${FLOW_CONTROLLER_BUG_DISTURBANCE}"/>
+    </bean>
+
+    <bean id="flowService" class="com.tradedoubler.billing.platform.flowcontroller.FlowService">
+        <property name="flowControllerSettings">
+            <ref local="flowControllerSettings"/>
+        </property>
+    </bean>
+
+    <bean id="flowController" scope="singleton"
+          class="com.tradedoubler.billing.platform.flowcontroller.FlowController"/>
+    <bean id="flowControllerOutputFilter"
+          class="com.tradedoubler.billing.platform.flowcontroller.FlowControllerOutputFilter"/>
+    <bean id="integrationInputPointFilter"
+          class="com.tradedoubler.billing.platform.flowcontroller.IntegrationInputPointFilter"/>
+    <bean id="flowEnd" class="com.tradedoubler.billing.platform.flowcontroller.FlowEnd"/>
+
+    <bean id="messageControllerService"
+          class="com.tradedoubler.billing.platform.messagecontroller.MessageControllerService">
+        <property name="dataSource">
+            <ref local="platformDataSource"/>
+        </property>
+        <property name="startZippingLimit" value="${START_ZIPPING_LIMIT}"/>
+    </bean>
+
+    <bean id="messageController" scope="singleton"
+          class="com.tradedoubler.billing.platform.messagecontroller.MessageController">
+        <property name="messageControllerService">
+            <ref local="messageControllerService"/>
+        </property>
+        <property name="skipMessageController" value="${SKIP_MESSAGE_CONTROLLER}"/>
+    </bean>
+
+    <bean id="platformDataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${PLATFORM.DB.DRIVER}"/>
+        <property name="url" value="${PLATFORM.DB.JDBCURL}"/>
+        <property name="username" value="${PLATFORM.DB.USERNAME}"/>
+        <property name="password" value="${PLATFORM.DB.PASSWORD}"/>
+        <property name="poolPreparedStatements" value="true"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="removeAbandoned" value="true"/>
+        <property name="removeAbandonedTimeout" value="60"/>
+        <property name="validationQuery" value="SELECT 1"/>
+        <property name="validationQueryTimeout" value="60"/>
+    </bean>
+
+    <bean id="flowExceptionHandler" class="com.tradedoubler.billing.platform.flowcontroller.FlowExceptionHandler"/>
+
+    <bean id="dummyInputFetcher" class="com.tradedoubler.billing.platform.flowcontroller.test.DummyInputFetcher"/>
+    <bean id="businessComponentMock"
+          class="com.tradedoubler.billing.platform.flowcontroller.test.BusinessComponentMock"/>
+    <bean id="dummyInputFetcher2" class="com.tradedoubler.billing.platform.flowcontroller.test.DummyInputFetcher2"/>
+    <bean id="businessComponentMock2"
+          class="com.tradedoubler.billing.platform.flowcontroller.test.BusinessComponentMock2"/>
+    <bean id="dummyInputLoadFetcher"
+          class="com.tradedoubler.billing.platform.flowcontroller.test.DummyInputLoadFetcher"/>
+
+    <bean id="dummyInvoiceFetcher" class="com.tradedoubler.billing.platform.flowcontroller.test.DummyInvoiceFetcher">
+        <property name="axFtpClient">
+            <ref local="axFtpClient"/>
+        </property>
+    </bean>
+    <bean id="businessComponentInvoiceMock"
+          class="com.tradedoubler.billing.platform.flowcontroller.test.BusinessComponentInvoiceMock">
+        <property name="axFtpClient">
+            <ref local="axFtpClient"/>
+        </property>
+    </bean>
+
+    <!-- Platform end -->
+
+    <!-- FTP client -->
+    <bean id="axFtpClient" class="com.tradedoubler.billing.service.ax.ftp.AxFtpClient">
+        <property name="host" value="${FTP.HOST}"/>
+        <property name="path" value="${FTP.PATH}"/>
+        <property name="username" value="${FTP.USERNAME}"/>
+        <property name="password" value="${FTP.PASSWORD}"/>
+    </bean>
+
+
+    <!-- Pan database setup -->
+    <bean id="panAdminDataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${PAN_ADMIN.DB.DRIVER}"/>
+        <property name="url" value="${PAN_ADMIN.DB.JDBC_URL}"/>
+        <property name="username" value="${PAN_ADMIN.DB.USERNAME}"/>
+        <property name="password" value="${PAN_ADMIN.DB.PASSWORD}"/>
+
+        <!-- The maximum number of milliseconds that the pool will wait (when there are no available connections) for a
+             connection to be returned before throwing an exception, or -1 to wait indefinitely. -->
+        <property name="maxWait" value="60000"/>
+
+        <!-- Enable prepared statement pooling for this pool. -->
+        <property name="poolPreparedStatements" value="true"/>
+        <!-- The maximum number of open statements that can be allocated from the statement pool at the same time, or zero for no limit.
+             This is initially set to two times the number of prepared JdbcCalls -->
+        <property name="maxOpenPreparedStatements" value="16"/>
+
+        <!-- The indication of whether objects will be validated before being borrowed from the pool.
+             If the object fails to validate, it will be dropped from the pool, and we will attempt to borrow another. -->
+        <property name="testOnBorrow" value="true"/>
+        <!-- The indication of whether objects will be validated before being returned to the pool. -->
+        <property name="testOnReturn" value="false"/>
+
+        <!-- The indication of whether objects will be validated by the idle object evictor (if any).
+             If an object fails to validate, it will be dropped from the pool. -->
+        <property name="testWhileIdle" value="true"/>
+        <!-- The number of milliseconds to sleep between runs of the idle object evictor thread.
+             When non-positive, no idle object evictor thread will be run. -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+
+        <!-- The SQL query that will be used to validate connections from this pool before returning them to the caller.
+             If specified, this query MUST be an SQL SELECT statement that returns at least one row. -->
+        <property name="validationQuery" value="SELECT 1 FROM dual"/>
+        <!-- Timeout in seconds before connection validation queries fail -->
+        <property name="validationQueryTimeout" value="60"/>
+
+        <!-- Flag to remove abandoned connections if they exceed the removeAbandonedTimout.
+             If set to true a connection is considered abandoned and eligible for removal if it has been idle longer
+             than the removeAbandonedTimeout. Setting this to true can recover db connections from poorly written
+             applications which fail to close a connection. -->
+        <property name="removeAbandoned" value="true"/>
+        <!-- Timeout in seconds before an abandoned connection can be removed. -->
+        <property name="removeAbandonedTimeout" value="60"/>
+    </bean>
+
+</beans>

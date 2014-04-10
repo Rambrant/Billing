@@ -1,0 +1,33 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dat="http://schemas.microsoft.com/dynamics/2010/01/datacontracts" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:ser="http://schemas.microsoft.com/dynamics/2008/01/services" xmlns:ent="http://schemas.microsoft.com/dynamics/2006/02/documents/EntityKeyList" xmlns:ent1="http://schemas.microsoft.com/dynamics/2006/02/documents/EntityKey">
+   <soapenv:Header>
+      <dat:CallContext>
+         <dat:Company>MED</dat:Company>
+         <dat:Language>en-US</dat:Language>
+         <dat:LogonAsUser>TRADEDOUBLER\ITG-AX_Dev</dat:LogonAsUser>
+      </dat:CallContext>
+   </soapenv:Header>
+   <soapenv:Body>
+      <ser:CustomerServiceCreateRequest>
+         <Customer xmlns="http://schemas.microsoft.com/dynamics/2008/01/documents/Customer">
+            <CustTable class="entity">
+               <AccountNum>ITG_FP_12</AccountNum>
+               <CustGroup>External</CustGroup>
+<FederalComments>Test comment</FederalComments>
+	<OrgId>565656565</OrgId>
+<VATNum>99999999</VATNum>
+             	  <DirParty xsi:type="AxdEntity_DirParty_DirOrganization" class="entity" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 	 <LanguageId>en-us</LanguageId>
+                 	 <Name>ITG customer 014</Name>
+	  <DirPartyPostalAddressView class="entity">
+                        <City>Stockholm</City>
+               	    <CountryRegionId>SWE</CountryRegionId>
+                        <Roles>Business</Roles>
+                        <Street>Testgatan</Street>
+                       <ZipCode>123 23</ZipCode>
+                  	  </DirPartyPostalAddressView>
+               	</DirParty>
+            </CustTable>
+         </Customer>
+      </ser:CustomerServiceCreateRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

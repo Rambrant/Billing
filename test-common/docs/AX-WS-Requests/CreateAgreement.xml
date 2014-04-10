@@ -1,0 +1,27 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dat="http://schemas.microsoft.com/dynamics/2010/01/datacontracts" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:tem="http://tempuri.org" xmlns:mds="http://schemas.microsoft.com/dynamics/2008/01/documents/MDS_ITGSalesClA">
+   <soapenv:Header>
+      <dat:CallContext>
+         <dat:Company>SE02</dat:Company>
+         <dat:Language>en-US</dat:Language>
+         <dat:LogonAsUser>TRADEDOUBLER\ITG-AX_Test</dat:LogonAsUser>
+      </dat:CallContext>
+   </soapenv:Header>
+   <soapenv:Body>
+      <tem:MDS_ITGSalesClAServiceCreateRequest>
+         <mds:MDS_ITGSalesClA>
+            <mds:MDS_SalesClientAgreement class="entity">
+               <mds:BelongsToDataAreaId>SE02</mds:BelongsToDataAreaId>
+               <mds:CurrencyCode>SEK</mds:CurrencyCode>
+               <mds:CustId>TELIA</mds:CustId>
+               <mds:Description>Agr description</mds:Description>
+               <mds:DocumentLink>http://pelle.nu/pelle.txt</mds:DocumentLink>
+               <mds:InvoiceRuleId>{3F2504E0-4F89-11D3-9A0C-0305E82C3405}</mds:InvoiceRuleId>
+               <mds:ProductTypeId>1</mds:ProductTypeId>
+               <mds:SourceSystemAgreementId>TTHHQXTSNZOYYQYHRBKY</mds:SourceSystemAgreementId>
+               <mds:ValidFrom>2012-06-01</mds:ValidFrom>
+               <mds:ValidTo>2012-08-01</mds:ValidTo>
+            </mds:MDS_SalesClientAgreement>
+         </mds:MDS_ITGSalesClA>
+      </tem:MDS_ITGSalesClAServiceCreateRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

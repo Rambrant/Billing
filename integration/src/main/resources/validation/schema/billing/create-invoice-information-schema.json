@@ -1,0 +1,18 @@
+{
+	"id" : "create-invoice-information-schema.json",
+	"description" : "Information about an invoice that has been created in AX",
+	"type" : "object",
+	"properties" : {
+		"metaData" : {
+			"$ref" : "metadata-schema.json",
+			"required" : true,
+			"description" : "Meta data of the message itself"
+		},
+		"invoice" : {
+			"$ref" : "invoice-schema.json",
+			"required" : true,
+			"description" : "The invoice that has been created"
+		}
+	},
+	"additionalProperties" : false
+}

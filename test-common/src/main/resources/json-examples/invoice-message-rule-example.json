@@ -1,0 +1,9 @@
+{
+	"invoiceMessageRuleId" : "885b8421-11f1-4684-1769-3478152e5597",
+	"clientId" : null,
+	"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3401",
+	"marketId" : null,
+	"messageText" : "This is a text to be printed on the invoices",
+	"validFrom" : "2012-06-25T00:00:00.000+01:00",
+	"validTo" : "2012-08-30T00:00:00.000+01:00"
+}

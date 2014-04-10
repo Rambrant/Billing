@@ -1,0 +1,9 @@
+{
+	"line1" : "Sveavägen 20",
+	"line2" : null,
+	"city" : "Stockholm",
+	"county" : "Östra mälardalen",
+	"postalCode" : "11157",
+	"countryCode" : "SE",
+	"addressType" : 3
+}

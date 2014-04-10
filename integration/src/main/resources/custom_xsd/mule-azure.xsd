@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://www.azure.org"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:mule="http://www.mulesoft.org/schema/mule/core"
+            xmlns:schemadoc="http://www.mulesoft.org/schema/mule/schemadoc"
+            targetNamespace="http://www.azure.org"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.mulesoft.org/schema/mule/core"
+                schemaLocation="http://www.mulesoft.org/schema/mule/core/3.1/mule.xsd"/>
+    <xsd:import namespace="http://www.mulesoft.org/schema/mule/schemadoc"
+                schemaLocation="http://www.mulesoft.org/schema/mule/schemadoc/3.1/mule-schemadoc.xsd"/>
+
+    <xsd:annotation>
+        <xsd:documentation>azure</xsd:documentation>
+        <xsd:appinfo>
+            <schemadoc:short-name>Azure</schemadoc:short-name>
+            <schemadoc:page-title>Azure Transport</schemadoc:page-title>
+            <schemadoc:transport-features
+                    receiveEvents="true" dispatchEvents="false" responseEvents="true"
+                    requestEvents="false"
+                    transactions="false" streaming="false">
+                <schemadoc:inboundMEPs in-only="true" in-optional-out="true" in-out="true"/>
+                <schemadoc:outboundMEPs out-only="${dispatcher}" out-in="true" out-optional-in="true"/>
+            </schemadoc:transport-features>
+        </xsd:appinfo>
+    </xsd:annotation>
+
+    <xsd:element name="connector" type="azureConnectorType" substitutionGroup="mule:abstract-connector">
+        <xsd:annotation>
+            <xsd:documentation>
+                Azure connector
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="azureConnectorType">
+        <xsd:complexContent>
+            <xsd:extension base="mule:connectorType">
+                <xsd:attribute name="pollingFrequency" type="mule:substitutableInt" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The default polling frequency in ms for all inbound endpoints using the connector.
+                            Can be overridden on each inbound endpoint.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="accountName" type="xsd:string" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The Azure storage account name
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="accountKey" type="xsd:string" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The Azure storage account key
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="visibilityTimeoutSeconds" type="mule:substitutableInt" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The length of time a message is hidden (after being read) in seconds.
+                            If the message has not been deleted from the queue when timeout expires it becomes visible again.
+                            Can be overridden on each inbound endpoint.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="serviceRequestTimeoutMs" type="mule:substitutableInt" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Time in ms before a service request to the Azure account times out.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:element name="inbound-endpoint" type="inboundEndpointType"
+                 substitutionGroup="mule:abstract-inbound-endpoint"/>
+    <xsd:complexType name="inboundEndpointType">
+        <xsd:complexContent>
+            <xsd:extension base="mule:inboundEndpointType">
+                <xsd:attributeGroup ref="azureGlobalProperties"/>
+                <xsd:attribute name="visibilityTimeoutSeconds" type="mule:substitutableInt" use="optional"/>
+                <xsd:attribute name="pollingFrequency" type="mule:substitutableInt" use="optional"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:element name="outbound-endpoint" type="outboundEndpointType"
+                 substitutionGroup="mule:abstract-outbound-endpoint"/>
+    <xsd:complexType name="outboundEndpointType">
+        <xsd:complexContent>
+            <xsd:extension base="mule:outboundEndpointType">
+                <xsd:attributeGroup ref="azureGlobalProperties"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:attributeGroup name="azureGlobalProperties">
+        <xsd:attribute name="queueName" type="xsd:string" use="required"/>
+        <xsd:attribute name="path" type="xsd:string" use="required"/>
+    </xsd:attributeGroup>
+
+    <xsd:element name="delete" type="deleteType" substitutionGroup="mule:abstract-message-processor">
+        <xsd:annotation>
+            <xsd:documentation>
+                delete element, used for intercepting current message in flow and issuing a
+                deleteMessage command on the azure queue that the message was retrieved from.
+                Doesn't require any other attributes because the message itself is intercepted
+                automatically by the message processor class specified in the AzureNamespaceHandler
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="deleteType">
+        <xsd:complexContent>
+            <xsd:extension base="mule:abstractInterceptingMessageProcessorType">
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,128 @@
+{
+	"metaData" : {
+			"creationTime" : "2012-07-05T13:21:00.000+02:00",
+			"messageId" : "28b62635-15a0-b15e-c5f4-5442b66d1059",
+			"messageType" : "UpdateInvoicingRule",
+			"sourceSystem" : "CRM",
+			"version" : "1.0"
+	},
+	"invoicingRule" : {
+		"clientId" : "TELIA",
+		"clientReference" : "Lasse Volvosson",
+		"currencyCode" : "EUR",
+		"description" : "Used in unit tests - do not edit",
+		"deviatingExchangeRate" : false,
+		"displayTDcommission" : true,
+		"distributionMode" : 1,
+		"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3405",
+		"invoicingRuleName" : "Volvo - do not edit",
+		"issuerReference" : "Maria Lind",
+		"marketId" : 51,
+		"paymentMethod" : 2,
+		"postingProfile" : 1,
+		"revenueType" : 1,
+		"termsOfPayment" : 30,
+		"invoiceMessageRules" : [{
+				"clientId" : null,
+				"invoiceMessageRuleId" : "00000000-0000-0000-3000-100000000001",
+				"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3405",
+				"marketId" : null,
+				"messageText" : "This is a text to be printed on all invoices for this invoicing rule",
+				"validFrom" : "2012-08-13T00:00:00.000+02:00",
+				"validTo" : "2012-08-30T00:00:00.000+02:00"
+			}
+		],
+		"invoiceRecipients" : [{
+				"attentionRow1" : "Attention of default recipient!",
+				"attentionRow2" : null,
+				"defaultRecipient" : true,
+				"emailAddress" : null,
+				"invoiceRecipientId" : "703b123f-6329-4d79-bfaa-60762a5f6cf4",
+				"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3405",
+				"registeredAddress" : {
+					"city" : "Göteborg",
+					"countryCode" : "SE",
+					"line1" : "AVD. 50090 HB3S",
+					"line2" : null,
+					"postalCode" : "40531",
+					"addressType" : 1,
+					"county" : null
+				},
+				"splittingRules" : []
+			}, {
+				"attentionRow1" : "Do not edit",
+				"attentionRow2" : "Used in unit tests",
+				"defaultRecipient" : false,
+				"emailAddress" : null,
+				"invoiceRecipientId" : "2b29cd0c-25e5-e111-8b5b-005056b45da6",
+				"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3405",
+				"registeredAddress" : {
+					"city" : "Dubrovnik",
+					"countryCode" : "SE",
+					"line1" : "Invoice street 1A",
+					"line2" : null,
+					"postalCode" : "12345",
+					"addressType" : 1,
+					"county" : null
+				},
+				"splittingRules" : [{
+						"invoiceRecipientId" : "2b29cd0c-25e5-e111-8b5b-005056b45da6",
+						"splitter" : "1365489",
+						"splittingRuleId" : "f3f43916-25e5-e111-8b5b-005056b45da6"
+					}
+				]
+			}, {
+				"attentionRow1" : null,
+				"attentionRow2" : null,
+				"defaultRecipient" : true,
+				"emailAddress" : null,
+				"invoiceRecipientId" : "3ac9520d-c9ed-e111-8b5b-005056b45da6",
+				"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3405",
+				"registeredAddress" : {
+					"city" : "Göteborg",
+					"countryCode" : "SE",
+					"line1" : "AVD. 50090 HB3S",
+					"line2" : "maria",
+					"postalCode" : "40531",
+					"addressType" : 1,
+					"county" : null
+				},
+				"splittingRules" : [{
+						"invoiceRecipientId" : "3ac9520d-c9ed-e111-8b5b-005056b45da6",
+						"splitter" : "kjhh567855",
+						"splittingRuleId" : "8f756919-c9ed-e111-8b5b-005056b45da6"
+					}, {
+						"invoiceRecipientId" : "3ac9520d-c9ed-e111-8b5b-005056b45da6",
+						"splitter" : "GUIsplitte",
+						"splittingRuleId" : "a4b1e141-38f0-e111-8b5b-005056b45da6"
+					}, {
+						"invoiceRecipientId" : "3ac9520d-c9ed-e111-8b5b-005056b45da6",
+						"splitter" : "Splitter",
+						"splittingRuleId" : "9fe327cb-4af0-e111-8b5b-005056b45da6"
+					}
+				]
+			}
+		],
+		"purchaseOrders" : [{
+				"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3405",
+				"poNumber" : "234 - do not edit",
+				"purchaseOrderId" : "00000000-0000-0000-4000-100000000001",
+				"validFrom" : "2012-08-15T00:00:00.000+02:00",
+				"validTo" : "2012-08-17T00:00:00.000+02:00"
+			}, {
+				"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3405",
+				"poNumber" : "66432",
+				"purchaseOrderId" : "00000000-0000-0000-4000-100000000002",
+				"validFrom" : "2012-08-22T00:00:00.000+02:00",
+				"validTo" : "2012-08-30T00:00:00.000+02:00"
+			}, {
+				"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3405",
+				"poNumber" : "A valid test",
+				"purchaseOrderId" : "00000000-0000-0000-4000-100000000003",
+				"validFrom" : "2012-10-19T00:00:00.000+02:00",
+				"validTo" : "2012-10-31T00:00:00.000+01:00"
+			}
+		],
+		"sourceSystemAgreementIds" : ["1-81"]
+	}
+}

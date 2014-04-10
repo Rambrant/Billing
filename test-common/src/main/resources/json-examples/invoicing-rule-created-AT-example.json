@@ -1,0 +1,128 @@
+{
+    "metaData":{
+        "messageType":"CreateInvoicingRule",
+        "messageId":"28a6263c-15d0-815e-25f4-cafebabe1001",
+        "creationTime":"2012-06-25T13:21:00.000+02:00",
+        "version":"1.0",
+        "sourceSystem":"CRM"
+    },
+    "invoicingRule":{
+        "clientId":"18811826",
+        "invoiceIssuerId":1173930513,
+        "invoicingRuleId":"3f2504e0-4f89-11d3-9a0c-cafebabe1001",
+        "invoicingRuleName":"Invoice Message Rule Example Name 13:45",
+        "description":"Example description",
+        "issuerReference":"Max Revenue",
+        "clientReference":"John Doe",
+        "currencyCode":"SEK",
+        "distributionMode":2,
+        "termsOfPayment":30,
+        "postingProfile":5,
+        "displayTDcommision":true,
+        "revenueType":1,
+        "paymentMethod":1,
+        "deviatingExchangeRate":false,
+        "invoiceRecipients":[
+            {
+                "invoiceRecipientId":"6abc2107-0376-7892-7756-cafebabe1001",
+                "invoicingRuleId":"3f2504e0-4f89-11d3-9a0c-cafebabe1001",
+                "attentionRow1":"John Doe",
+                "attentionRow2":"",
+                "emailAddress":"invoice@recipient.com",
+                "defaultRecipient":true,
+                "registeredAddress":{
+                    "line1":"Vasagatan 38",
+                    "line2":null,
+                    "city":"Stockholm",
+                    "county":null,
+                    "postalCode":"11120",
+                    "countryCode":"SE",
+                    "addressType":3
+                },
+                "splittingRules":[
+                    {
+                        "splittingRuleId":"4b751705-8c35-163d-6e62-cafebabe1001",
+                        "invoiceRecipientId":"6abc2107-0376-7892-7756-cafebabe1001",
+                        "splitter":"customEventExample"
+                    }
+                ]
+            }
+        ],
+        "purchaseOrders":[
+            {
+                "purchaseOrderId":"2a167b36-c41d-034e-6628-cafebabe1001",
+                "invoicingRuleId":"3f2504e0-4f89-11d3-9a0c-cafebabe1001",
+                "poNumber":"URCWZNLSCB",
+                "validFrom":"2012-06-25T00:00:00.000+01:00",
+                "validTo":"2012-08-30T00:00:00.000+01:00"
+            }
+        ],
+        "invoiceMessageRules":[
+            {
+                "invoiceMessageRuleId":"885b8421-11f1-4684-1769-cafebabe1001",
+                "clientId":"18811826",
+                "invoicingRuleId":"3f2504e0-4f89-11d3-9a0c-cafebabe1001",
+                "invoiceIssuerId":null,
+                "messageText":"This is a text to be printed on all invoices for this invoicing rule",
+                "validFrom":"2012-06-25T00:00:00.000+01:00",
+                "validTo":"2012-08-30T00:00:00.000+01:00"
+            }
+        ]
+    },
+    "agreement":{
+        "sourceSystemAgreementId":"TTHHQXTScafebabe1001",
+        "clientId":"TELIA",
+        "invoicingRuleId":"3f2504e0-4f89-11d3-9a0c-cafebabe1001",
+        "description":"Agreement Name Example",
+        "productType":1,
+        "marketId":1173930513,
+        "currencyCode":"SEK",
+        "validFrom":"2012-06-25T15:30:01.999+02:00",
+        "validTo":"2012-08-25T15:30:01.999+02:00",
+        "documentLink":"\\\\someserver\\somefolder\\somefile.pdf"
+    },
+    "client":{
+        "clientId":"18811826",
+        "registeredCompanyName":"Kentor IT AB",
+        "companyRegistrationNumber":"556284-2319",
+        "vatNumber":"SE556284231901",
+        "invoiceLanguage":"SV",
+        "registeredInCountry":"SE",
+        "defaultPaymentMethod":1,
+        "businessFormCode":"",
+        "bankAccounts":[
+            {
+                "bankId":"28831570-0463-7958-3431-cafebabe1001",
+                "clientId":"18811826",
+                "paymentMethod":2,
+                "marketId":1814923582,
+                "bankCode":"Bank Code Example",
+                "bankAccount":"Bank Account Example",
+                "accountOwner":"Account Owner Example"
+            }
+        ],
+        "registeredAddress":{
+            "line1":"Vasagatan 38",
+            "line2":null,
+            "city":"Stockholm",
+            "county":null,
+            "postalCode":"11120",
+            "countryCode":"SE",
+            "addressType":3
+        },
+        "invoiceMessageRules":[
+            {
+                "invoiceMessageRuleId":"885d8421-11f1-4684-1769-cafebabe1001",
+                "clientId":"18811826",
+                "invoicingRuleId":null,
+                "invoiceIssuerId":null,
+                "messageText":"This is a text to be printed on all invoices for this client",
+                "validFrom":"2012-06-25T00:00:00.000+01:00",
+                "validTo":"2012-08-30T00:00:00.000+01:00"
+            }
+        ],
+        "marketIds":[
+            130981722
+        ]
+    }
+}

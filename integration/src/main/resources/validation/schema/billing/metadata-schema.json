@@ -1,0 +1,39 @@
+{
+	"id" : "metadata-schema.json",
+	"description" : "Meta information for a message",
+	"type" : "object",
+	"properties" : {
+		"messageType" : {
+			"description" : "The type of message, e.g. InvoicingRuleCreated. In combination with messageId and sourceSystem it forms a unique message identifier used to for example detect duplicate messages. This minimizes the risk of colliding message IDs, and allows each source system to have separate ID sequences for each message type.",
+			"type" : "string",
+			"minLength" : 5,
+			"maxLength" : 256,
+			"required" : true
+		},
+		"messageId" : {
+			"$ref" : "guid-schema.json",
+			"required" : true,
+			"description" : "Message identifier. Set by the source system."
+		},
+		"creationTime" : {
+			"$ref" : "timestamp-schema.json",
+			"required" : true,
+			"description" : "The time of creation for this message"
+		},
+		"version" : {
+			"description" : "Version of the message format",
+			"type" : "string",
+			"minLength" : 1,
+			"maxLength" : 10,
+			"required" : true
+		},
+		"sourceSystem" : {
+			"description" : "Name/ID of the system that created the message",
+			"type" : "string",
+			"minLength" : 2,
+			"maxLength" : 256,
+			"required" : true
+		}
+	},
+	"additionalProperties" : false
+}

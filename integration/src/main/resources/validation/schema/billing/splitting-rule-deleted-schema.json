@@ -1,0 +1,28 @@
+{
+	"id" : "splitting-rule-deleted-schema.json",
+	"description" : "Information about a splitting rule that has been deleted",
+	"type" : "object",
+	"properties" : {
+		"metaData" : {
+			"$ref" : "metadata-schema.json",
+			"required" : true,
+			"description" : "Meta data of the message itself"
+		},
+		"splittingRuleId" : {
+			"$ref" : "guid-schema.json",
+			"required" : true,
+			"description" : "The CRM primary key for the deleted splitting rule"
+		},
+		"invoiceRecipientId" : {
+			"$ref" : "guid-schema.json",
+			"required" : true,
+			"description" : "The invoice recipient the splitter refered to",
+		},
+		"marketId" : {
+			"description" : "The PAN market id the splitting rule refered to (derivated from the invoicing rule)",
+			"type" : "integer",
+			"required":true
+		}
+	},
+	"additionalProperties" : false
+}

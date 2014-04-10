@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:http="http://www.mulesoft.org/schema/mule/http"
+      xmlns:quartz="http://www.mulesoft.org/schema/mule/quartz"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="CE-3.2.1" xsi:schemaLocation="
+
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/3.2/mule-http.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.2/mule.xsd
+http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/quartz/current/mule-quartz.xsd">
+
+    <!-- Define a non-concurrent flow processing strategy -->
+    <queued-asynchronous-processing-strategy name="nonConcurrent" maxThreads="1" minThreads="1" maxQueueSize="0" poolExhaustedAction="RUN"/>
+
+     <quartz:connector name="quartzConnector1">
+        <quartz:factory-property key="org.quartz.scheduler.instanceName" value="MuleScheduler1"/>
+        <quartz:factory-property key="org.quartz.threadPool.class" value="org.quartz.simpl.SimpleThreadPool"/>
+        <quartz:factory-property key="org.quartz.threadPool.threadCount" value="1"/>
+        <quartz:factory-property key="org.quartz.scheduler.rmi.proxy" value="false"/>
+        <quartz:factory-property key="org.quartz.scheduler.rmi.export" value="false"/>
+        <quartz:factory-property key="org.quartz.jobStore.class" value="org.quartz.simpl.RAMJobStore"/>
+        <quartz:factory-property key="org.quartz.jobStore.misfireThreshold" value="1"/>
+    </quartz:connector>
+
+</mule>

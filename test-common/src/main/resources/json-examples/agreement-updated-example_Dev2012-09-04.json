@@ -1,0 +1,21 @@
+{
+	"metaData" : {
+			"messageType" : "UpdateAgreement",
+			"messageId" : "54b7887c-481d-62f6-5641-3f33f46ec478",
+			"creationTime" : "2012-07-07T12:52:20.000+02:00",
+			"version" : "1.0",
+			"sourceSystem" : "CRM"
+	},
+	"agreement" : {
+			"sourceSystemAgreementId" : "1111111111",
+			"clientId" : "ITG_FP_07",
+			"invoicingRuleId" : "00000000-0000-0000-1000-100000000000",
+			"description" : "New ClientAgreement description",
+			"productType" : 1,
+			"marketId" : 51,
+			"currencyCode" : "SEK",
+			"validFrom" : "2012-06-25T15:30:01.999+02:00",
+			"validTo" : "2012-10-25T15:30:01.999+02:00",
+			"documentLink" : "\\\\someserver\\somefolder\\somefile.pdf"
+	}
+}

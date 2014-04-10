@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:http="http://www.mulesoft.org/schema/mule/http"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:quartz="http://www.mulesoft.org/schema/mule/quartz"
+      xmlns:vm="http://www.mulesoft.org/schema/mule/vm"
+      version="CE-3.2.1" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/3.2/mule-http.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.2/mule.xsd
+
+http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/quartz/3.2/mule-quartz.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/3.2/mule-vm.xsd">
+
+    <flow name="UpdatePrepaymentForecastPan" processingStrategy="nonConcurrent">
+
+        <!-- PLATFORM / PER FLOW: Start triggers for the flow. Substitute parameters for the specific flow. -->
+        <composite-source>
+
+            <quartz:inbound-endpoint jobName="UpdatePrepaymentForecastPanTimer"
+                                     repeatInterval="${PREPAYMENT_FORECAST_UPDATED_PAN_REPEAT_INTERVAL}"
+                                     startDelay="${PREPAYMENT_FORECAST_UPDATED_PAN_START_DELAY}"
+                                     connector-ref="quartzConnector1">
+            <quartz:event-generator-job>
+                    <quartz:payload>QUARTZ</quartz:payload>
+            </quartz:event-generator-job>
+        </quartz:inbound-endpoint>
+
+            <!-- Mandatory: path must equal flow name -->
+            <vm:inbound-endpoint exchange-pattern="one-way" path="UpdatePrepaymentForecastPan"/>
+
+        </composite-source>
+
+        <!-- PLATFORM: Determines when a flow should be run -->
+        <component>
+            <spring-object bean="flowController"/>
+        </component>
+
+        <!-- PLATFORM: If disturbance the flow ends here -->
+        <filter ref="flowControllerOutputFilter"/>
+
+
+        <!-- fetch from pan -->
+        <component>
+            <spring-object bean="fetchPanEntity"/>
+        </component>
+
+        <!-- PLATFORM: Determine if input was available or if the flow should end -->
+        <filter ref="integrationInputPointFilter"/>
+
+        <!-- PLATFORM: Analyses the integration message -->
+        <component>
+            <spring-object bean="messageController"/>
+        </component>
+
+        <!-- Send prepayment forecast to Crm and confirm forecast in pan -->
+        <component>
+            <spring-object bean="mulePrepaymentForecastUpdated"/>
+        </component>
+
+        <!-- PLATFORM: Analyses the integration message -->
+        <component>
+            <spring-object bean="messageController"/>
+        </component>
+
+        <!-- PLATFORM: Ends a flow correctly -->
+        <component>
+            <spring-object bean="flowEnd"/>
+        </component>
+
+        <!-- PLATFORM: Handles all (unexpected) exceptions -->
+        <default-exception-strategy>
+            <component>
+                <spring-object bean="flowExceptionHandler"/>
+            </component>
+        </default-exception-strategy>
+
+    </flow>
+</mule>
+
+
+
+

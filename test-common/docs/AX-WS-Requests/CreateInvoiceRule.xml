@@ -1,0 +1,37 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dat="http://schemas.microsoft.com/dynamics/2010/01/datacontracts" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:ser="http://schemas.microsoft.com/dynamics/2008/01/services" xmlns:mds="http://schemas.microsoft.com/dynamics/2008/01/documents/MDS_ITGSalesInvR">
+   <soapenv:Header>
+      <dat:CallContext>
+         <dat:Company>SE02</dat:Company>
+         <dat:LogonAsUser>TRADEDOUBLER\ITG-AX_Test</dat:LogonAsUser>
+      </dat:CallContext>
+   </soapenv:Header>
+   <soapenv:Body>
+      <ser:MDS_ITGSalesInvRServiceCreateRequest>
+         <mds:MDS_ITGSalesInvR>
+            <mds:MDS_SalesInvoiceRule class="entity" >
+               <mds:BelongsToDataAreaId>SE02</mds:BelongsToDataAreaId>
+               <mds:CurrencyCode>SEK</mds:CurrencyCode>
+               <mds:CustomerReference>John Doe</mds:CustomerReference>
+               <mds:Description>Description</mds:Description>
+               <mds:DeviatingExchRate>No</mds:DeviatingExchRate>
+               <mds:DisplayTDComission>Yes</mds:DisplayTDComission>
+               <mds:DistributionMode>Email</mds:DistributionMode>
+               <mds:InvoiceRuleId>{3f2504e0-4f89-11d3-9a0c-0305e82c3405}</mds:InvoiceRuleId>
+               <mds:IssuerReference>Max Revenue</mds:IssuerReference>
+               <mds:Name>Morgontest 9:35</mds:Name>
+               <mds:PaymModeId>BG</mds:PaymModeId>
+               <mds:PaymTermId>30</mds:PaymTermId>
+               <mds:PostingProfile>STD</mds:PostingProfile>
+               <mds:RevenueTypeId>1</mds:RevenueTypeId>
+               <mds:MDS_SalesInvoiceMessage class="entity">
+                  <mds:InvoiceMessageId>{885b8421-11f1-4684-1769-3478152e5505}</mds:InvoiceMessageId>
+                  <mds:SourceType>InvoiceRule</mds:SourceType>
+                  <mds:Text>Test Message Text</mds:Text>
+                  <mds:ValidFrom>2012-06-25</mds:ValidFrom>
+                  <mds:ValidTo>2013-08-30</mds:ValidTo>
+               </mds:MDS_SalesInvoiceMessage>
+            </mds:MDS_SalesInvoiceRule>
+         </mds:MDS_ITGSalesInvR>
+      </ser:MDS_ITGSalesInvRServiceCreateRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

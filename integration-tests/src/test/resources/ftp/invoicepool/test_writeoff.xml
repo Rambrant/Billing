@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Envelope xmlns="http://schemas.microsoft.com/dynamics/2011/01/documents/Message">
+    <Header>
+        <MessageId>{A20D1E55-F26A-40A4-9E24-F4FD139B7212}</MessageId>
+        <Action>http://tempuri.org/MDS_ITGSCustInvService/read</Action>
+    </Header>
+    <Body>
+        <MessageParts xmlns="http://schemas.microsoft.com/dynamics/2011/01/documents/Message">
+            <MDS_ITGSCustInv xmlns="http://schemas.microsoft.com/dynamics/2008/01/documents/MDS_ITGSCustInv">
+                <DateTimeSent>2012-10-22T14:29:40Z</DateTimeSent>
+                <DocPurpose>Original</DocPurpose>
+                <GrossProfit>205.00</GrossProfit>
+                <InvoiceEvent>WriteOff</InvoiceEvent>
+                <InvoicePeriod>1208</InvoicePeriod>
+                <LastSettleDate>2012-09-06</LastSettleDate>
+                <SenderId>se02</SenderId>
+                <SettleAmountCur>256.25</SettleAmountCur>
+                <CustInvoiceJour class="entity">
+                    <_DocumentHash>43de532b599024c8237e3bd76d68439a</_DocumentHash>
+                    <Backorder>No</Backorder>
+                    <CurrencyCode>SEK</CurrencyCode>
+                    <CustGroup>EXTERNAL</CustGroup>
+                    <MDS_SalesInvoiceDocumentLinkOrig>/ftp/pdf/example.pdf</MDS_SalesInvoiceDocumentLinkOrig>
+                    <CustomerRef>Customer reference updated</CustomerRef>
+                    <DeliveryName>Telia Sverige AB</DeliveryName>
+                    <DueDate>2012-09-08</DueDate>
+                    <DueDateTimeEinvoice>2012-09-08T16:47:02</DueDateTimeEinvoice>
+                    <EInvoiceLineSpecific>No</EInvoiceLineSpecific>
+                    <ExchRate>100.000000000000</ExchRate>
+                    <GiroType>None</GiroType>
+                    <InclTax>No</InclTax>
+                    <InterCompanyPosted>No</InterCompanyPosted>
+                    <InventLocationId>Warehouse1</InventLocationId>
+                    <InvoiceAccount>TELIA</InvoiceAccount>
+                    <InvoiceAmount>256.25</InvoiceAmount>
+                    <InvoiceAmountMST>256.25000000000000000000</InvoiceAmountMST>
+                    <InvoiceDate>2012-08-09</InvoiceDate>
+                    <InvoiceId>SE100000002</InvoiceId>
+                    <InvoicingName>Faktura Adress</InvoicingName>
+                    <IsRetailSale>No</IsRetailSale>
+                    <LanguageId>sv</LanguageId>
+                    <LedgerVoucher>CO100000002</LedgerVoucher>
+                    <Listcode>IncludeNot</Listcode>
+                    <NetAmount>205.00</NetAmount>
+                    <OneTimeCustomer>No</OneTimeCustomer>
+                    <OrderAccount>TELIA</OrderAccount>
+                    <ParmId>100001264</ParmId>
+                    <Payment>30</Payment>
+                    <PaymentId>000001000000024</PaymentId>
+                    <PostingProfile>STD</PostingProfile>
+                    <PrintMgmtSiteId>Site01</PrintMgmtSiteId>
+                    <Proforma>No</Proforma>
+                    <Qty>1.00</Qty>
+                    <RecId>5637145422</RecId>
+                    <RecVersion>327187529</RecVersion>
+                    <RefNum>SalesOrder</RefNum>
+                    <RemainAmountToBePaid>256.25</RemainAmountToBePaid>
+                    <ReturnStatus>None</ReturnStatus>
+                    <SalesBalance>205.00</SalesBalance>
+                    <SalesBalanceMST>205.00000000000000000000</SalesBalanceMST>
+                    <SalesId>SO100001290</SalesId>
+                    <SalesType>Sales</SalesType>
+                    <SourceDocumentHeader>5637146719</SourceDocumentHeader>
+                    <SumTax>51.25</SumTax>
+                    <SumTaxMST>51.25000000000000000000</SumTaxMST>
+                    <TaxGroup>DOM</TaxGroup>
+                    <TaxPrintOnInvoice>No</TaxPrintOnInvoice>
+                    <TaxSpecifyByLine>No</TaxSpecifyByLine>
+                    <TaxTypeCodeEinvoice>VAT</TaxTypeCodeEinvoice>
+                    <Triangulation>No</Triangulation>
+                    <TypeCodeEinvoice>PIE</TypeCodeEinvoice>
+                    <Updated>Yes</Updated>
+                    <XMLDocPurpose>Original</XMLDocPurpose>
+                    <CustInvoiceTrans class="entity">
+                        <CommissCalc>No</CommissCalc>
+                        <CurrencyCode>SEK</CurrencyCode>
+                        <DeliveryType>None</DeliveryType>
+                        <DlvDate>2012-08-09</DlvDate>
+                        <InventDimId>DIm100000000004</InventDimId>
+                        <InventQty>1.00</InventQty>
+                        <InventRefType>None</InventRefType>
+                        <InventTransId>LOT100000000565</InventTransId>
+                        <InvoiceDate>2012-08-09</InvoiceDate>
+                        <InvoiceId>SE100000002</InvoiceId>
+                        <ItemId>220</ItemId>
+                        <ItemName>Merchant account balance</ItemName>
+                        <LineAmount>205.00</LineAmount>
+                        <LineAmountInclTax>205.00</LineAmountInclTax>
+                        <LineAmountMST>205.00000000000000000000</LineAmountMST>
+                        <LineAmountPreSubOfDiscPercentInclTax>205.00</LineAmountPreSubOfDiscPercentInclTax>
+                        <LineHeader>Försäljningsorder SO100001290 Kund TELIA Leveransadress Leverans &amp; Fakturagruppe</LineHeader>
+                        <Name>6,,42818</Name>
+                        <OrigSalesId>SO100001290</OrigSalesId>
+                        <PartDelivery>Yes</PartDelivery>
+                        <PriceUnit>1.00</PriceUnit>
+                        <Qty>1.00</Qty>
+                        <QtyPhysical>1.00</QtyPhysical>
+                        <RecId>5637145656</RecId>
+                        <RecVersion>1330486803</RecVersion>
+                        <ReverseChargeApplies_UK>No</ReverseChargeApplies_UK>
+                        <SalesId>SO100001290</SalesId>
+                        <SalesUnit>pcs</SalesUnit>
+                        <SourceDocumentLine>5637146243</SourceDocumentLine>
+                        <StockedProduct>Yes</StockedProduct>
+                        <TaxAutogenerated>No</TaxAutogenerated>
+                        <TaxGroup>DOM</TaxGroup>
+                        <TaxItemGroup>25S</TaxItemGroup>
+                        <SalesLine class="entity">
+                            <Blocked>No</Blocked>
+                            <Complete>No</Complete>
+                            <ConfirmedDlv>2012-08-09</ConfirmedDlv>
+                            <CostPrice>1604.66666666666700000000</CostPrice>
+                            <CurrencyCode>SEK</CurrencyCode>
+                            <CustAccount>TELIA</CustAccount>
+                            <CustGroup>EXTERNAL</CustGroup>
+                            <CustomerRef>Customer reference updated</CustomerRef>
+                            <DefaultDimension>
+                                <Values xmlns="http://schemas.microsoft.com/dynamics/2008/01/sharedtypes">
+                                    <Value>
+                                        <Name>CostCenter_OLDDONOTUSE</Name>
+                                        <Value>00005030</Value>
+                                    </Value>
+                                    <Value>
+                                        <Name>Counterpart</Name>
+                                        <Value>1000</Value>
+                                    </Value>
+                                </Values>
+                            </DefaultDimension>
+                            <DeliveredIntotal>1.00</DeliveredIntotal>
+                            <DeliveryDateControlType>None</DeliveryDateControlType>
+                            <DeliveryName>Telia Sverige AB</DeliveryName>
+                            <DeliveryPostalAddress>
+                                <Location_LocationId xmlns="http://schemas.microsoft.com/dynamics/2008/01/sharedtypes">000001383</Location_LocationId>
+                                <ValidFrom xmlns="http://schemas.microsoft.com/dynamics/2008/01/sharedtypes">2012-08-09T10:01:11Z</ValidFrom>
+                            </DeliveryPostalAddress>
+                            <DeliveryType>None</DeliveryType>
+                            <InventDimId>DIm100000000004</InventDimId>
+                            <InventRefType>None</InventRefType>
+                            <InventTransId>LOT100000000565</InventTransId>
+                            <ItemId>220</ItemId>
+                            <itemReplaced>No</itemReplaced>
+                            <LineAmount>205.00</LineAmount>
+                            <Name>6,,42818</Name>
+                            <PriceUnit>1.00</PriceUnit>
+                            <QtyOrdered>1.00</QtyOrdered>
+                            <ReceiptDateRequested>2012-08-09</ReceiptDateRequested>
+                            <RecId>5637145076</RecId>
+                            <RecVersion>1879692295</RecVersion>
+                            <Reservation>None</Reservation>
+                            <ReturnAllowReservation>No</ReturnAllowReservation>
+                            <ReturnStatus>None</ReturnStatus>
+                            <SalesId>SO100001290</SalesId>
+                            <SalesQty>1.00</SalesQty>
+                            <SalesStatus>Invoiced</SalesStatus>
+                            <SalesType>Sales</SalesType>
+                            <SalesUnit>pcs</SalesUnit>
+                            <Scrap>No</Scrap>
+                            <ShipCarrierDlvType>Misc</ShipCarrierDlvType>
+                            <ShippingDateRequested>2012-08-09</ShippingDateRequested>
+                            <StatTriangularDeal>No</StatTriangularDeal>
+                            <TaxAutogenerated>Yes</TaxAutogenerated>
+                            <TaxGroup>DOM</TaxGroup>
+                            <TaxItemGroup>25S</TaxItemGroup>
+                        </SalesLine>
+                    </CustInvoiceTrans>
+                </CustInvoiceJour>
+            </MDS_ITGSCustInv>
+        </MessageParts>
+    </Body>
+</Envelope>

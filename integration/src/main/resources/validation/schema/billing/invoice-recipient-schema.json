@@ -1,0 +1,54 @@
+{
+	"id" : "invoice-recipient-schema.json",
+	"description" : "A recipient of invoices",
+	"type" : "object",
+	"properties" : {
+	    "invoiceRecipientId" : {
+			"$ref" : "guid-schema.json",
+			"required" : true,
+			"description" : "The primary id for the invoice recipient"
+		},
+		"invoicingRuleId" : {
+			"$ref" : "guid-schema.json",
+			"required" : true,
+			"description" : "The id of the invoicing rule the recipient refers to"
+		},
+		"attentionRow1" : {
+			"description" : "Used for attention information in invoice address.",
+			"type" : ["string", "null"],
+			"required":true
+		},
+		"attentionRow2" : {
+			"description" : "Used for attention information in invoice address.",
+			"type" : ["string", "null"],
+			"required":true
+		},
+		"emailAddress" : {
+			"description" : "Email address to be used when emailing invoices.",
+			"type" : ["string", "null"],
+			"pattern" : "\\b[A-Za-z0-9._%-]+\\@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}\\b",
+			"required":true
+		},
+		"defaultRecipient" : {
+			"description" : "Set to yes if the recipient is intended to be used as default invoice recipient for current invoicing rule.",
+			"type" : "boolean",
+			"required":true
+		},		
+		"registeredAddress" : {
+			"$ref" : "address-schema.json",
+			"required":true,
+			"description" : "The invoicing address of the recipient"
+		},
+		"splittingRules" : {
+			"description" : "The splitting rules of the recipient",
+			"type" : "array",
+			"items" : {
+				"$ref" : "splitting-rule-schema.json",
+				"description" : "Splitting rule"
+			},
+			"additionalItems" : false,
+			"required" : true
+		}
+	},
+	"additionalProperties" : false
+}

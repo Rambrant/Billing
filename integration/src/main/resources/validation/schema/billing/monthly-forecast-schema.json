@@ -1,0 +1,83 @@
+{
+	"id" : "monthly-forecast-schema.json",
+	"description" : "Represents a monthly forecast in the CRM",
+	"type" : "object",
+	"properties" : {
+		"sourceSystemAgreementId" : {
+			"description" : "The program/agreement the monthly forecast belongs to",
+			"type" : "string",
+			"minLength" : 1,
+			"maxLength": 20,
+			"required":true
+		},
+		"year" : {
+			"description" : "The year the monthly forecast belongs to",
+			"type" : "integer",
+			"minimum" : 2012,
+			"required" : true
+		},
+		"month" : {
+			"description" : "The month the monthly forecast belongs to",
+			"type" : "integer",
+			"enum" : [1,2,3,4,5,6,7,8,9,10,11,12],
+			"required" : true
+		},
+		"currencyCode" : {
+			"description" : "The agreement currency",
+			"type" : "string",
+			"pattern" : "^[A-Z]{3}$",
+			"required" : true
+		},
+		"accountManagement" : {
+			"description" : "GP for account management",
+			"type" : ["number", "null"],
+			"required" : true
+		},
+		"consulting" : {
+			"description" : "GP for consulting",
+			"type" : ["number", "null"],
+			"required" : true
+		},
+		"filehostingFee" : {
+			"description" : "GP for filehosting",
+			"type" : ["number", "null"],
+			"required" : true
+		},
+		"minimumTransactionFee" : {
+			"description" : "GP for transaction fee",
+			"type" : ["number", "null"],
+			"required" : true
+		},
+		"networkFee" : {
+			"description" : "GP for network fee",
+			"type" : ["number", "null"],
+			"required" : true
+		},
+		"other" : {
+			"description" : "GP for other",
+			"type" : ["number", "null"],
+			"required" : true
+		},
+		"suf" : {
+			"description" : "GP for suf",
+			"type" : ["number", "null"],
+			"required" : true
+		},
+		"tradedoublerCommission" : {
+			"description" : "GP for Tradedoubler commission",
+			"type" : ["number", "null"],
+			"required" : true
+		},
+		"transactionalRevenue" : {
+			"description" : "Revenue for transactions",
+			"type" : ["number", "null"],
+			"required" : true
+		},
+		"fixedAndOtherRevenue" : {
+			"description" : "Revenue for fixed and other",
+			"type" : ["number", "null"],
+			"required" : true
+		}
+	},
+	"additionalProperties" : false
+}

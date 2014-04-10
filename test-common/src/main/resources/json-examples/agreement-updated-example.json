@@ -1,0 +1,21 @@
+{
+	"metaData" : {
+			"creationTime" : "2012-07-07T12:52:20.000+02:00",
+			"messageId" : "54b7887c-481d-62f6-5641-3f33f46ec478",
+			"messageType" : "UpdateAgreement",
+			"sourceSystem" : "CRM",
+			"version" : "1.0"
+	},
+	"agreement" : {
+			"clientId" : "Cl42824050",
+			"currencyCode" : "SEK",
+			"description" : "Agreement Name Example",
+			"documentLink" : "\\\\someserver\\somefolder\\somefile.pdf",
+			"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3401",
+			"marketId" : 51,
+			"productType" : 3,
+			"sourceSystemAgreementId" : "1-1234567896",
+			"validFrom" : "2012-06-25T15:30:01.999+02:00",
+			"validTo" : null
+	}
+}

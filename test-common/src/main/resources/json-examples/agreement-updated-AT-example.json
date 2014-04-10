@@ -1,0 +1,21 @@
+{
+	"metaData" : {
+			"messageType" : "UpdateAgreement",
+			"messageId" : "54b7887c-481d-62f6-5641-3f33f46ec478",
+			"creationTime" : "2012-07-07T12:52:20.000+02:00",
+			"version" : "1.0",
+			"sourceSystem" : "CRM"
+	},
+	"agreement" : {
+			"sourceSystemAgreementId" : "TTHHQXTScafebabe1003",
+			"clientId" : "TELIA",
+			"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-cafebabe1003",
+			"description" : "Agreement Name Example updated",
+			"productType" : 1,
+			"marketId" : 1173930513,
+			"currencyCode" : "SEK",
+			"validFrom" : "2012-08-01T15:30:01.999+02:00",
+			"validTo" : "2012-10-01T15:30:01.999+02:00",
+			"documentLink" : "\\\\someserver\\somefolder\\updated_somefile.pdf"
+	}
+}

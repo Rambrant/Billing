@@ -1,0 +1,12 @@
+{
+	"sourceSystemAgreementId" : "1-1234567896",
+	"clientId" : "18811826",
+	"invoicingRuleId" : "3f2504e0-4f89-11d3-9a0c-0305e82c3401",
+	"description" : "Agreement Name Example",
+	"productType" : 3,
+	"marketId" : 51,
+	"currencyCode" : "SEK",
+	"validFrom" : "2012-06-25T15:30:01.999+02:00",
+	"validTo" : null,
+	"documentLink" : "\\\\someserver\\somefolder\\somefile.pdf"
+}

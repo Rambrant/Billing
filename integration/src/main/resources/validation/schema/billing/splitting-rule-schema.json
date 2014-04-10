@@ -1,0 +1,25 @@
+{
+	"id" : "splitting-rule-schema.json",
+	"description" : "A rule that could split invoices",
+	"type" : "object",
+	"properties" : {
+	    "splittingRuleId" : {
+			"$ref" : "guid-schema.json",
+			"required" : true,
+			"description" : "The CRM primary key for the splitting rule"
+		},
+		"invoiceRecipientId" : {
+			"$ref" : "guid-schema.json",
+			"required" : true,
+			"description" : "A reference to the invoice recipient the splitter refers to"
+		},
+		"splitter" : {
+			"description" : "Custom event that shall be invoiced to selected Invoice recipient.",
+			"type" : "string",
+			"minLength" : 1,
+			"maxLength" : 10,
+			"required" : true
+		}
+	},
+	"additionalProperties" : false
+}

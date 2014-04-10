@@ -1,0 +1,196 @@
+{
+    "metaData":{
+        "creationTime":"2012-08-31T14:44:43.290+02:00",
+        "messageId":"badbabe1-1c3f-4a72-867a-0ceff7acf728",
+        "messageType":"CreateInvoicingRule",
+        "sourceSystem":"CRM",
+        "version":"1.0"
+    },
+    "agreement":{
+        "clientId":"Badbabe1",
+        "currencyCode":"EUR",
+        "description":"German opportunity - do not edit, used in unit tests",
+        "documentLink":null,
+        "invoicingRuleId":"badbabe1-24e5-e111-8b5b-005056b45da6",
+        "marketId":51,
+        "productType":6,
+        "sourceSystemAgreementId":"1-81",
+        "validFrom":"2012-08-15T00:00:00.000+02:00",
+        "validTo":"2012-08-29T00:00:00.000+02:00"
+    },
+    "client":{
+        "bankAccounts":[
+            {
+                "accountOwner":"Someone at Volvo",
+                "bankAccount":"123456789",
+                "bankCode":"SWEDBANK",
+                "clientId":"Badbabe1",
+				"marketId" : 135899
+            }
+        ],
+        "businessFormCode":null,
+        "clientId":"Badbabe1",
+        "companyRegistrationNumber":"5560743089",
+        "invoiceLanguage":"sv",
+        "invoiceMessageRules":[
+            {
+                "clientId":"Badbabe1",
+                "invoiceMessageRuleId":"badbabe1-1ae5-e111-8b5b-005056b45d01",
+                "invoicingRuleId":null,
+                "marketId":null,
+                "messageText":"This is a text to be printed on all invoices for the client",
+                "validFrom":"2012-08-12T00:00:00.000+02:00",
+                "validTo":"2012-10-18T00:00:00.000+02:00"
+            }
+        ],
+        "marketIds":[51],
+        "registeredAddress":{
+            "city":"21312",
+            "countryCode":"SE",
+            "line1":"21355",
+            "line2":null,
+            "postalCode":"123",
+            "addressType":3,
+            "county":null
+        },
+        "registeredCompanyName":"Volvo Personvagnar AB",
+        "vatNumber":"1234545"
+    },
+    "invoicingRule":{
+        "clientId":"Badbabe1",
+        "clientReference":"Lasse Volvosson",
+        "currencyCode":"EUR",
+        "description":"Used in unit tests - do not edit",
+        "deviatingExchangeRate":false,
+        "displayTDcommission":false,
+        "distributionMode":1,
+        "invoicingRuleId":"badbabe1-24e5-e111-8b5b-005056b45da6",
+        "invoicingRuleName":"Volvo - do not edit",
+        "issuerReference":"Maria Lind",
+        "marketId":51,
+        "paymentMethod":2,
+        "postingProfile":1,
+        "revenueType":1,
+        "termsOfPayment":30,
+        "invoiceMessageRules":[
+            {
+                "clientId":null,
+                "invoiceMessageRuleId":"badbabe1-40e5-e111-8b5b-005056b45d11",
+                "invoicingRuleId":"badbabe1-24e5-e111-8b5b-005056b45da6",
+                "marketId":null,
+                "messageText":"This is a text to be printed on all invoices for this invoicing rule",
+                "validFrom":"2012-08-13T00:00:00.000+02:00",
+                "validTo":"2012-08-30T00:00:00.000+02:00"
+            }
+        ],
+        "invoiceRecipients":[
+            {
+                "attentionRow1":"Attention of default recipient!",
+                "attentionRow2":null,
+                "defaultRecipient":true,
+                "emailAddress":null,
+                "invoiceRecipientId":"badbabe1-25e5-e111-8b5b-005056b45a01",
+                "invoicingRuleId":"badbabe1-24e5-e111-8b5b-005056b45da6",
+                "registeredAddress":{
+                    "city":"Göteborg",
+                    "countryCode":"SE",
+                    "line1":"AVD. 50090 HB3S",
+                    "line2":null,
+                    "postalCode":"40531",
+                    "addressType":1,
+                    "county":null
+                },
+                "splittingRules":[]
+            },
+            {
+                "attentionRow1":"Do not edit",
+                "attentionRow2":"Used in unit tests",
+                "defaultRecipient":false,
+                "emailAddress":null,
+                "invoiceRecipientId":"badbabe1-25e5-e111-8b5b-005056b45a02",
+                "invoicingRuleId":"badbabe1-24e5-e111-8b5b-005056b45da6",
+                "registeredAddress":{
+                    "city":"Dubrovnik",
+                    "countryCode":"SE",
+                    "line1":"Invoice street 1A",
+                    "line2":null,
+                    "postalCode":"12345",
+                    "addressType":1,
+                    "county":null
+                },
+                "splittingRules":[
+                    {
+                        "invoiceRecipientId":"badbabe1-25e5-e111-8b5b-005056b45da6",
+                        "splitter":"1365489",
+                        "splittingRuleId":"badbabe1-25e5-e111-8b5b-005056b45b01"
+                    }
+                ]
+            },
+            {
+                "attentionRow1":null,
+                "attentionRow2":null,
+                "defaultRecipient":true,
+                "emailAddress":null,
+                "invoiceRecipientId":"badbabe1-c9ed-e111-8b5b-005056b45a03",
+                "invoicingRuleId":"badbabe1-24e5-e111-8b5b-005056b45da6",
+                "registeredAddress":{
+                    "city":"Göteborg",
+                    "countryCode":"SE",
+                    "line1":"AVD. 50090 HB3S",
+                    "line2":"maria",
+                    "postalCode":"40531",
+                    "addressType":1,
+                    "county":null
+                },
+                "splittingRules":[
+                    {
+                        "invoiceRecipientId":"badbabe1-c9ed-e111-8b5b-005056b45da6",
+                        "splitter":"kjhh567855",
+                        "splittingRuleId":"badbabe1-c9ed-e111-8b5b-005056b45b02"
+                    },
+                    {
+                        "invoiceRecipientId":"badbabe1-c9ed-e111-8b5b-005056b45da6",
+                        "splitter":"GUIsplitte",
+                        "splittingRuleId":"badbabe1-38f0-e111-8b5b-005056b45b03"
+                    },
+                    {
+                        "invoiceRecipientId":"badbabe1-c9ed-e111-8b5b-005056b45da6",
+                        "splitter":"Splitter",
+                        "splittingRuleId":"badbabe1-4af0-e111-8b5b-005056b45b04"
+                    }
+                ]
+            }
+        ],
+        "purchaseOrders":[
+            {
+                "invoicingRuleId":"badbabe1-24e5-e111-8b5b-005056b45da6",
+                "poNumber":"234 - do not edit",
+                "purchaseOrderId":"badbabe1-25e5-e111-8b5b-005056b45d01",
+                "validFrom":"2012-08-15T00:00:00.000+02:00",
+                "validTo":"2012-08-17T00:00:00.000+02:00"
+            },
+            {
+                "invoicingRuleId":"badbabe1-24e5-e111-8b5b-005056b45da6",
+                "poNumber":"66432",
+                "purchaseOrderId":"badbabe1-25e5-e111-8b5b-005056b45d02",
+                "validFrom":"2012-08-22T00:00:00.000+02:00",
+                "validTo":"2012-08-30T00:00:00.000+02:00"
+            },
+            {
+                "invoicingRuleId":"badbabe1-24e5-e111-8b5b-005056b45da6",
+                "poNumber":"A valid test",
+                "purchaseOrderId":"badbabe1-d1ea-e111-8b5b-005056b45d03",
+                "validFrom":"2012-10-19T00:00:00.000+02:00",
+                "validTo":"2012-10-31T00:00:00.000+01:00"
+            },
+            {
+                "invoicingRuleId":"badbabe1-24e5-e111-8b5b-005056b45da6",
+                "poNumber":"GUI test",
+                "purchaseOrderId":"badbabe1-21f0-e111-8b5b-005056b45d04",
+                "validFrom":"2012-12-01T00:00:00.000+01:00",
+                "validTo":"2012-12-23T00:00:00.000+01:00"
+            }
+        ],
+        "sourceSystemAgreementIds":["1-81"]
+    }
+}

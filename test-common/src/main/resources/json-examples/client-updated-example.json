@@ -1,0 +1,50 @@
+{
+	"metaData" : {
+			"creationTime" : "2012-07-07T12:52:20.000+02:00",
+			"messageId" : "54d7887f-481a-62f6-5b41-3f33f46ec478",
+			"messageType" : "UpdateClient",
+			"sourceSystem" : "CRM",
+			"version" : "1.0"
+	},
+	"client" : {
+			"bankAccounts" : [
+					{
+						"accountOwner" : "Account Owner Example",
+						"bankAccount" : "4242424242",
+						"bankCode" : "SWEDSESS",
+						"clientId" : "Cl42824050",
+						"marketId" : 51
+					}
+			],
+			"businessFormCode" : "",
+			"clientId" : "Cl42824050",
+            "clientType" : 0,
+			"companyRegistrationNumber" : "556284-2319",
+			"invoiceLanguage" : "SV",
+			"invoiceMessageRules" : [
+						{
+							"clientId" : "Cl42824050",
+							"invoiceMessageRuleId" : "face8421-11f1-4684-1769-3478152e5597",
+							"invoicingRuleId" : null,
+							"marketId" : null,
+							"messageText" : "This is a text to be printed on all invoices for this client",
+							"validFrom" : "2012-06-25T00:00:00.000+01:00",
+							"validTo" : "2012-08-30T00:00:00.000+01:00"
+						}
+			],
+        	"marketIds" : [
+        			51
+        	],
+			"registeredAddress" : {
+					"city" : "Stockholm",
+					"countryCode" : "SE",
+					"line1" : "Vasagatan 38",
+					"line2" : "hejsan",
+					"postalCode" : "11120",
+					"addressType" : 3,
+					"county" : null
+			},
+			"registeredCompanyName" : "Kentor IT AB",
+			"vatNumber" : "SE556284231901"
+	}
+}
